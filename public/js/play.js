@@ -250,6 +250,12 @@ function tick(t) {
       gift.vy += (touch.y - gift.y) * T.glyph.carrySpring * f;
     }
     stepBody(gift, f);
+    // the gift never leaves the world (offscreen = uncollidable = wall)
+    const gm = 24;
+    if (gift.x < gm) { gift.x = gm; gift.vx = Math.abs(gift.vx) * 0.4; }
+    if (gift.x > vw - gm) { gift.x = vw - gm; gift.vx = -Math.abs(gift.vx) * 0.4; }
+    if (gift.y < gm + 40) { gift.y = gm + 40; gift.vy = Math.abs(gift.vy) * 0.4; }
+    if (gift.y > vh - gm) { gift.y = vh - gm; gift.vy = -Math.abs(gift.vy) * 0.4; }
     place(gift);
 
     // collision: flung toy trajectory must actually overlap the carried gift —
@@ -421,6 +427,18 @@ export function setPlayEnabled(b) {
 
 export function setBaitCap(n) {
   baitCap = n | 0;
+}
+
+export function creatureFling(tx, ty) {
+  // the creature throws its own toy — same physics, same collision rules;
+  // aim is honest, jitter is real, geometry decides (P6: never a scripted hit)
+  if (!toy || flight) return;
+  const dx = tx - toy.x, dy = ty - toy.y;
+  const d = Math.hypot(dx, dy) || 1;
+  const sp = 24;
+  toy.vx = (dx / d) * sp + (Math.random() - 0.5) * 5;
+  toy.vy = (dy / d) * sp + (Math.random() - 0.5) * 5;
+  startFlight();
 }
 
 export function carryGift(el) {

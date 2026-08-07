@@ -113,32 +113,92 @@ export function startArc() {
     if (M >= 5 && M < 7 && P().toyGifted && !P().broken) theBreak();
   });
 
-  // The stillness invitation. The hold-gated beats (M4, M8) must never be
-  // an invisible wall: if the visitor keeps moving, the creature asks for
-  // stillness in the shared language — it points at "still." and breathes
-  // a slow, held rhythm where their finger last was.
-  let lastHoldAt = 0;
+  // THE RESCUE ENGINE. No gate may ever be an invisible wall (the lesson
+  // of all three versions): when a present, active visitor stalls, the
+  // creature escalates — hint, then demonstration, then it does the risky
+  // thing itself. Progress can slow; it can never wedge.
+  let lastProgressAt = Date.now();
   let lastActivityAt = Date.now();
   let lastTouchPt = { x: innerWidth / 2, y: innerHeight * 0.6 };
-  on('gesture.hold', () => (lastHoldAt = Date.now()));
+  const rescues = {};
+  const progress = () => (lastProgressAt = Date.now());
+  on('arc.movement', progress);
+  on('word.ratified', progress);
+  on('word.spent', progress);
+  on('play.swap', progress);
+  on('arc.break', progress);
+  on('arc.repaired', progress);
+  on('speech.done', progress);
+  on('gesture.hold', progress);
   on('touch.down', (d) => {
     lastActivityAt = Date.now();
     lastTouchPt = { x: d.x, y: d.y };
   });
+
+  function stillnessInvitation() {
+    stage.trembleWord('STILL', true);
+    setTimeout(() => stage.trembleWord('STILL', false), 3200);
+    skin.leanTo(lastTouchPt.x, lastTouchPt.y, 0.6);
+    [0, 900, 1800].forEach((t, i) =>
+      setTimeout(() => skin.ringAt(lastTouchPt.x, lastTouchPt.y, 0.3 + i * 0.1), t)
+    );
+  }
+
   setInterval(() => {
-    const holdGated = (M === 4) || (M === 8);
-    if (!holdGated || P().ended) return;
-    const active = Date.now() - lastActivityAt < 30000;
-    const noRecentHold = Date.now() - lastHoldAt > 40000;
-    if (active && noRecentHold) {
-      stage.trembleWord('STILL', true);
-      setTimeout(() => stage.trembleWord('STILL', false), 3200);
-      skin.leanTo(lastTouchPt.x, lastTouchPt.y, 0.6);
-      [0, 900, 1800].forEach((t, i) =>
-        setTimeout(() => skin.ringAt(lastTouchPt.x, lastTouchPt.y, 0.3 + i * 0.1), t)
-      );
+    if (P().ended) return;
+    const present = Date.now() - lastActivityAt < 30000;
+    const stalled = Date.now() - lastProgressAt > T.arc.stallMs;
+    if (!present || !stalled) return;
+    rescues[M] = (rescues[M] || 0) + 1;
+
+    if (M === 2) {
+      // it stops waiting on ceremony: two more offers, then the game
+      // counts as played, its way
+      if (rescues[M] >= 3) advance(3);
+    } else if (M === 3) {
+      queueOstension();
+    } else if (M === 4 || M === 8) {
+      stillnessInvitation();
+    } else if (M === 5 && !P().toyGifted) {
+      giveGift();
+    } else if (M === 5 && P().toyGifted && !P().broken) {
+      // risky play: it brings its gift into the game itself and throws —
+      // honest aim, honest physics; the geometry decides (P6). If the gift
+      // has drifted out of the field of play, it retrieves it first.
+      let r = giftEl?.getBoundingClientRect();
+      if (r) {
+        const out = r.left < 8 || r.right > innerWidth - 8 || r.top < 60 || r.bottom > innerHeight - 8;
+        if (out) {
+          const nx = 100 + Math.random() * (innerWidth - 240);
+          const ny = 360 + Math.random() * 200;
+          giftEl.style.transform = `translate(${nx}px, ${ny}px)`;
+          setTimeout(() => {
+            play.carryGift(giftEl);
+            const r2 = giftEl.getBoundingClientRect();
+            play.creatureFling(r2.left + r2.width / 2, r2.top + r2.height / 2);
+          }, 700);
+        } else {
+          play.carryGift(giftEl);
+          play.creatureFling(r.left + r.width / 2, r.top + r.height / 2);
+        }
+      }
+    } else if (P().broken && !P().repaired) {
+      // it noses two shards toward each other: the wanting made visible
+      const free = shards.filter((s) => !s.dataset.merged && document.body.contains(s));
+      if (free.length >= 2) {
+        const a = free[0].getBoundingClientRect();
+        const b = free[1].getBoundingClientRect();
+        const nx = a.left + (b.left - a.left) * 0.45;
+        const ny = a.top + (b.top - a.top) * 0.45;
+        free[0].dataset.hx = nx;
+        free[0].dataset.hy = ny;
+        free[0].style.transform = `translate(${nx}px, ${ny}px)`;
+        skin.moveLocus(nx, ny - 50, 0.5);
+      }
+    } else if (M === 7) {
+      fluencyLoop();
     }
-  }, 24000);
+  }, T.arc.rescueEveryMs);
 
   tick();
 }

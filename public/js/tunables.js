@@ -1,4 +1,5 @@
 // Every magic number. Builders reference T.* where the contract says so.
+const params = new URLSearchParams(location.search);
 export const T = {
   noise: { minTravel: 8, minMs: 40, palmRadius: 40 },
   hold: { onsetMs: 2000, wanderPx: 12 },
@@ -25,6 +26,8 @@ export const T = {
     repairShards: 3,
     fluencyExchanges: 4, // question-games before the name
     restMaxGapMs: 90000, // cadence guarantee (~90s of interaction)
+    stallMs: params.has('faststall') ? 5000 : 45000, // no invisible walls
+    rescueEveryMs: params.has('faststall') ? 2500 : 13000,
   },
 
   skin: {
@@ -39,4 +42,4 @@ export const T = {
   glyph: { spring: 0.12, friction: 0.88, carrySpring: 0.06 },
 };
 
-export const DEBUG = new URLSearchParams(location.search).has('debug');
+export const DEBUG = params.has('debug');

@@ -7,10 +7,8 @@ import { motifBank } from './touch.js';
 
 export function mountDebug() {
   // QA hook — exists only under ?debug=1
-  import('./events.js').then((ev) => {
-    import('./language.js').then((lang) => {
-      window.__sorrel = { P, mark, currentMovement, nervesState, motifBank, emit: ev.emit, lang };
-    });
+  Promise.all([import('./events.js'), import('./language.js'), import('./play.js')]).then(([ev, lang, play]) => {
+    window.__sorrel = { P, mark, currentMovement, nervesState, motifBank, emit: ev.emit, on: ev.on, lang, play };
   });
   const el = document.createElement('div');
   el.id = 'debug';
