@@ -6,6 +6,12 @@ import { currentMovement } from './arc.js';
 import { motifBank } from './touch.js';
 
 export function mountDebug() {
+  // QA hook — exists only under ?debug=1
+  import('./events.js').then((ev) => {
+    import('./language.js').then((lang) => {
+      window.__sorrel = { P, mark, currentMovement, nervesState, motifBank, emit: ev.emit, lang };
+    });
+  });
   const el = document.createElement('div');
   el.id = 'debug';
   el.style.cssText =

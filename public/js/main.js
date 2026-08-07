@@ -20,7 +20,13 @@ mountNerves();
 if (persisted.nerves) {
   try { nervesRestore(persisted.nerves); } catch {}
 }
-mountPlay(toyEl);
+// stage places the toy beside its bite on a double-rAF; play must measure
+// AFTER that placement or it claims the toy at the origin (ordering race)
+requestAnimationFrame(() =>
+  requestAnimationFrame(() =>
+    requestAnimationFrame(() => mountPlay(toyEl))
+  )
+);
 initLanguage();
 startArc();
 

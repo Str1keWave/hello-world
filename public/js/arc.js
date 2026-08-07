@@ -79,6 +79,10 @@ export function startArc() {
       lang.spendWord('SLACK', { revocable: true });
       await lang.utter(['SLACK'], { at: { x: d.x + 70, y: d.y - 50 } });
       rest(4);
+    } else if (M === 4) {
+      // it says its one word again, in the stillness where it was born
+      await breathe(d);
+      await lang.utter(['SLACK'], { at: { x: d.x + 70, y: d.y - 50 } });
     } else if (M === 8) {
       await breathe(d);
       await theName(d);
@@ -240,16 +244,19 @@ function theBreak() {
   play.stopCarry();
   shards = [];
   mergedShards = 0;
+  // spends are witnessed mid-viewport (law): clamp the wound onscreen
+  const cx = Math.min(Math.max(r.left, 60), innerWidth - 120);
+  const cy = Math.min(Math.max(r.top, 140), innerHeight - 200);
   const pieces = ['obs', 'erv', 'ed'];
   pieces.forEach((txt, i) => {
     const s = document.createElement('span');
     s.className = 'shard';
     s.textContent = txt;
-    s.style.transform = `translate(${r.left + i * 6}px, ${r.top}px)`;
+    s.style.transform = `translate(${cx + i * 6}px, ${cy}px)`;
     document.getElementById('loose').appendChild(s);
     shards.push(s);
     setTimeout(() => {
-      s.style.transform = `translate(${r.left - 40 + i * 44 + (Math.random() * 16 - 8)}px, ${r.top + 60 + Math.random() * 40}px)`;
+      s.style.transform = `translate(${Math.max(24, cx - 40 + i * 44 + (Math.random() * 16 - 8))}px, ${cy + 60 + Math.random() * 40}px)`;
     }, 60);
   });
   setTimeout(() => {
@@ -266,20 +273,24 @@ function mountRepair() {
     for (const s of shards) {
       if (s.dataset.merged) continue;
       const r = s.getBoundingClientRect();
-      if (Math.abs(d.x - r.left) < 46 && Math.abs(d.y - r.top) < 46) {
-        s.style.transform = `translate(${d.x - 6}px, ${d.y - 30}px)`;
+      const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+      if (Math.abs(d.x - cx) < 64 && Math.abs(d.y - cy) < 64) {
+        s.dataset.hx = d.x - 8; s.dataset.hy = d.y - 26;
+        s.style.transform = `translate(${d.x - 8}px, ${d.y - 26}px)`;
       }
     }
-    // merge check: any two unmerged shards close together
+    // merge check on INTENDED positions (transitions lag the transform)
     for (let i = 0; i < shards.length; i++) {
       for (let j = i + 1; j < shards.length; j++) {
         const a = shards[i], b = shards[j];
         if (a.dataset.merged || b.dataset.merged) continue;
-        const ra = a.getBoundingClientRect(), rb = b.getBoundingClientRect();
-        if (Math.abs(ra.left - rb.left) < 26 && Math.abs(ra.top - rb.top) < 26) {
+        if (a.dataset.hx == null || b.dataset.hx == null) continue;
+        const ra = { left: +a.dataset.hx, top: +a.dataset.hy };
+        const rb = { left: +b.dataset.hx, top: +b.dataset.hy };
+        if (Math.abs(ra.left - rb.left) < 30 && Math.abs(ra.top - rb.top) < 30) {
           b.dataset.merged = '1';
           b.style.opacity = '0';
-          a.textContent += '·';
+          a.textContent = (a.textContent + b.textContent).replace('··', '·');
           mergedShards += 1;
           // legible progress within two touches (P7): a peek per merge
           skin.moveLocus(ra.left, ra.top - 60, 0.6);
@@ -335,7 +346,7 @@ async function fluencyLoop() {
     offS();
     exchanges += 1;
     skin.excite(innerWidth / 2, innerHeight / 2, 0.5);
-    setTimeout(fluencyLoop, 5000);
+    setTimeout(fluencyLoop, 3200);
     tick();
   }
 }
