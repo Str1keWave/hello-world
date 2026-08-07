@@ -49,18 +49,23 @@ const MILESTONES = [
         ledger('2.4.5', 'Fixed a bug where the support widget could open unprompted.', 'lie');
       }
       const lead = T.appointmentLeadDays[0] + Math.floor(Math.random() * (T.appointmentLeadDays[1] - T.appointmentLeadDays[0] + 1));
-      const start = new Date();
-      start.setDate(start.getDate() + lead);
-      start.setHours(0, 0, 0, 0);
-      const startTs = start.getTime();
+      let startTs;
+      if (T.dayMs === 24 * 3600 * 1000) {
+        const start = new Date();
+        start.setDate(start.getDate() + lead);
+        start.setHours(0, 0, 0, 0);
+        startTs = start.getTime();
+      } else {
+        startTs = Date.now() + lead * T.dayMs; // scaled calendar
+      }
       s.appointment = {
         startTs,
-        endTs: startTs + T.appointmentWindowHours * 3600 * 1000,
+        endTs: startTs + (T.appointmentWindowHours / 24) * T.dayMs,
         posted: true,
         attended: false,
         resolved: false,
       };
-      ledger('2.4.6', `Scheduled maintenance: ${start.toISOString().slice(0, 10)}, up to ${T.appointmentWindowHours}h. Some records will be temporarily unredacted for migration.`, 'window');
+      ledger('2.4.6', `Scheduled maintenance: ${new Date(startTs).toISOString().slice(0, 10)}, up to ${T.appointmentWindowHours}h. Some records will be temporarily unredacted for migration.`, 'window');
     },
   },
   {

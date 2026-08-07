@@ -140,6 +140,9 @@ export function setSessionData(obj) {
 }
 
 export function localDayString(ts) {
+  // Under ?clockscale, "days" become fixed buckets of scaled length so the
+  // whole calendar compresses coherently (spoiler-free fast mode).
+  if (T.dayMs !== 24 * 3600 * 1000) return 'p' + Math.floor(ts / T.dayMs);
   const d = new Date(ts);
   return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
 }

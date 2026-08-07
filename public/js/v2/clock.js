@@ -22,6 +22,10 @@ export function accountVisit() {
       isNewVisit = true;
       sameDayReturn = true;
     }
+  } else if (gap >= T.resumeGapMs) {
+    // same-tab return after a real absence: sessionStorage survived the
+    // detour (phone URL-bar navigation), but the session is stale
+    isNewVisit = true;
   }
 
   if (isNewVisit) {

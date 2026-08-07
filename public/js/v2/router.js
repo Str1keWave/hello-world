@@ -22,7 +22,7 @@ export function mountRouter() {
     e.preventDefault();
     const path = logical(new URL(link.href, location.href).pathname);
     try {
-      history.pushState({ v2: path }, '', BASE + path.slice(1));
+      history.pushState({ v2: path }, '', BASE + path.slice(1) + location.search);
     } catch {}
     open(path);
   });
@@ -55,7 +55,7 @@ export function open(path) {
     a.addEventListener('click', (e) => {
       e.preventDefault();
       try {
-        history.pushState({ v2: '/' }, '', BASE);
+        history.pushState({ v2: '/' }, '', BASE + location.search);
       } catch {}
       close();
     })

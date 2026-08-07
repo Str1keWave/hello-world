@@ -63,3 +63,4 @@ export const T = {
 };
 
 export const DEBUG = params.has('debug');
+export const SCALED = SCALE !== 1;
