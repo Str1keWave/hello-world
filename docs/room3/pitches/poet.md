@@ -134,3 +134,28 @@ etched last where a signature goes.
 **The register.** Captions, almost liner notes. "track one: the long
 still part. i liked the long still part." / "kept: seven things. this was
 the seventh."
+
+---
+
+## **FINAL**
+
+One animal, one throat. Naturalist's MIMIC holds a tide-table posture; the
+page is its skin AND its only book, and camouflage and speech are one organ
+(their cephalopod point). Speaking spends cover: every pried word leaves an
+authored gap — one consistent kerned tooth-mark (Skeptic's fix for trap 10).
+
+The throat: Puppeteer's gesture-echo, then rhythm, then rhythm carrying
+letters. The visitor's own motif is the crowbar that pries words loose
+(Puppeteer's improvement on my adjacency staging). Rehearsal is visible —
+skin practices an almost-glyph subsong before the print lifts (Naturalist).
+Early speech is physical and effortful: words carried, dropped, wrong
+baseline, wearing stolen typography. My register lines are the late-session
+ceiling only, paid for by witnessed failure (Puppeteer's condition).
+
+First word: SLACK, born in held-finger stillness, taught unknowingly,
+revocable. First PERMANENT word, midpoint: OBSERVED, "predicted" discarded.
+Climax spends the header — its own name. Ending is Playwright's
+circle-close; THE RECORD is cut (Skeptic, trap 9). What remains: the page
+rests with its gaps unhealed. KNOCK goes visual-first (Skeptic's iOS
+fatality). Overextension errors stay: high water means every joy, for a
+while.

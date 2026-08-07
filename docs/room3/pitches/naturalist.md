@@ -108,3 +108,29 @@ pristine archive stillness, instantly, perfectly.
 re-ordering recipe steps into an address to you. Asking for help during a
 molt, in a borrowed voice, from inside the thing it's asking you to help it
 leave.
+
+---
+
+## FINAL
+
+The animal is THE MIMIC, fused. One anatomy: the page is a cephalopod-like
+body holding a camouflage posture (a slightly-wrong municipal tide-table
+site), and — as in real cephalopods — the same skin that hides is the organ
+that speaks. Its voice is Poet's MAGPIE: it pries words from its own
+disguise, rehearsing each in skin first (subsong before crystallized song),
+so every utterance permanently costs it cover. Courage is measurable in gaps.
+
+Taken from the room: Puppeteer's three-channel skin vocabulary (pulse-trains
+for rhythm, papillae paths for drags, passing-clouds for arousal), the
+misalignment-plus-fast-breathing startle residue, and the mote-as-grooming
+loop. Playwright's exposure axis and the midpoint complex — spend, startle,
+half-failed re-camouflage (true chromatic flickering), settle — with gaps as
+scars, and speech-as-final-exposure as the climax. Poet's ruling: SLACK is
+the first word, taught unknowingly in shared stillness; OBSERVED the first
+permanent spend, "predicted" discarded. Skeptic's constraints are anatomy
+now: responses propagate to where the thumb is not, every spend witnessed
+via rehearsal and bound by their four rules (state persists per event and
+restores with the creature animate; blur mid-spend rewinds or re-presents;
+spends stay mid-viewport, near recent contact). Memory appears only as
+changed thresholds — habituation, sensitization, relearning-savings. Never
+recall.

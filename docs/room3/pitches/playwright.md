@@ -61,3 +61,9 @@ Five structures. Each is an arc powered only by what the visitor does. No clocks
 **The climax.** At the deepest layer it speaks — and what it says reveals the surface page was its first attempt to talk: the mundane site was a sentence you couldn't read yet. The whole session retroactively becomes dialogue.
 
 **The ending.** It carries you back up. The surface page is subtly rewritten in light of everything — same page, now legible. Closing the tab on a page you can finally read is the ending.
+
+---
+
+## FINAL — The Locked Shape
+
+One arc, room-built. Frame: Naturalist's MIMIC — a slightly wrong tide-table page that is the creature holding a posture. The escalation axis is EXPOSURE; the ladder is Naturalist's irreversible word-spends. Movements pinned to Puppeteer's body: Act 1 Startle Economy and Grain (gentleness is the only verb), bridge Keepaway, Act 2 Echo-Then-Ask and Wrong Guess, Act 3 Held Breath. Language spine: Poet's Ostension, with Not-An-Echo's recombination pivot as the Act 2-to-3 turn. Cadence law from my Every Door Is An Exit: seven to nine complete rests, each a graded Held Breath (Puppeteer's curve), never more than ninety seconds away; blur or lock resumes at the last rest. Vocabulary ruling (Naturalist/Poet): pre-midpoint words are repossessable by startle; post-midpoint spends are permanent gaps. Midpoint, per Skeptic: use, not recap. The Break: Puppeteer's carried-gift collision fires a half-failed re-camouflage — the reflex meets permanent gaps and flickers. The wound is sensitization (Naturalist); repair is Act 1 verbs re-habituating the threshold, action-bounded, legible within two touches, above Skeptic's responsiveness floor. Climax: speech as final exposure, understood cold. Ending: Skeptic's It Says Goodbye First; the visitor composes, it answers "slack" (Poet); the page rests, gaps unhealed. Screenshot test governs.

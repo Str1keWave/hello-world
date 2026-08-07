@@ -140,3 +140,31 @@ trying to talk") is executable in body language alone, and every trap in
 the brief is a trap of WORDS. Whatever the entity is, I want its first
 attempt at speech to be a rhythm the visitor taught it without either of
 them noticing.
+
+---
+
+## FINAL
+
+I drop the discrete body. From NATURALIST: the creature is the page's skin
+(MIMIC), and my six pitches transpose into cephalopod anatomy — breathe
+(mantle swell), wave (passing-clouds arousal), flatten (startle/camouflage,
+one reflex now), papillae (Grain's lean-in), echo (with poor-proprioception
+error, their alibi, stolen gladly). My addition holds: motifs must be
+figure against ground — tap-motifs as subsurface pulse-trains, drag-motifs
+as papillae paths tracing the exact touch line. Keepaway's mote becomes a
+pried glyph (grooming, not fetch). Recovery from startle carries residue —
+misalignment plus fast breathing, decaying — and habituates: the nervous
+system itself learns the visitor, no memory display needed.
+
+From POET: the MOTIF → OSTENSION → PUMP bridge; the visitor's own motif is
+the crowbar that pries the first word. Early speech stays physical and
+effortful — fluency is minute-25, paid for on screen.
+
+From PLAYWRIGHT: Held Breath becomes a graded curve (breath-sync, settle,
+full weight) serving as every cadence-rest; the Break triggers on a watched
+collision with the carried gift, never a speed tripwire; repair is Act 1
+verbs.
+
+From SKEPTIC, adopted as law: ~2s hold onset, long-press suppression,
+meaning rides the wavefront not the hidden center, transform/opacity only,
+sensory noise floor under Startle, baits capped at two.
