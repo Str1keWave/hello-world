@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [master, claude/site-that-notices-w8cnyy]
+    branches: [master]
   workflow_dispatch:
 
 permissions:
