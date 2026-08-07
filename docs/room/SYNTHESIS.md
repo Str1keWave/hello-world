@@ -187,3 +187,76 @@ gains a clock-forward control (test-only). All timing constants in one
 tunable module. QA must verify: binge wall, drift path, clean-visitor path,
 inheritor path, wipe path, missed-window path, no-investigation path, and
 that nothing — nothing — surfaces in the session that caused it.
+
+---
+
+# PUNCH-UP RESPONSES (Phase 5) — take/reject with reasons, and amended canon
+
+P1 TAKE (wall illegibility). Amendment: footer carries "v2.4.1 · updated
+nightly" from day one — cadence legible as genre furniture; AND the first
+same-day return may claim exactly one settlement (the wall starts at the
+second same-day return, and now it reads as schedule, not absence).
+P2 TAKE (imperceptible removals). Amendment: removals target high-salience
+countables (a whole pricing tier, a named testimonial), and every removal
+leaves ONE dangling reference elsewhere ("Compare all four plans" above
+three tiers). Deniable as sloppy webdev; findable; points at the wound.
+P3 TAKE (no early hook). Amendment: the pronoun slip moves to VISIT 1,
+present on first render, fixed on reload, once ever — the visitor watches
+the page get corrected between loads on day one. Teaches "this page is
+edited" without spending the mask (a typo fixed is genre-true).
+P4/P5 TAKE (empty casual arc; backwards ignition). Amendment: Overheard,
+appointment, E1, pricing, sunset all gate on the two clocks only;
+investigation ACCELERATES and shapes (convergence war, the experiment) but
+never ignites. Ignition = slip + nightly cadence + dangling references.
+P6 TAKE (cute ending). The brief-quote is dead, both candidates. Amendment:
+E1's payload is the visitor's own typed-then-deleted text (v2 or inherited
+v1) rendered as the quote; if none exists, the quote is EMPTY — a fourth
+testimonial with metadata and attribution but nothing to say, the subject
+who never gave the site a word. "— Founder. Subject since <real date>."
+P7 TAKE (buried spine). Amendment: the beta's progress shadows on-page as
+ordinary copy drift: "Free while in beta." → "The beta is closing soon." →
+(after the crash) the line is gone. /status remains the detailed ledger.
+P8 TAKE-PARTIAL (appointment lost). Amendment: window widens to 24h on a
+day 2–4 out; the in-genre maintenance banner persists across the preceding
+days (as real ones do). Missing it remains a real, authored loss.
+P9 TAKE. Definition: appointment resolved = attended OR window elapsed.
+Missing blocks nothing, ever.
+P10 TAKE — resolved by P3.
+P11 TAKE (Overheard narrates the premise). Amendment — new canon lines,
+never referencing the visitor or watching: "— is it ready" / "— been ready
+for weeks" / "— so why are we holding" / "— ask the founder". Two parties,
+a finished held thing, an unnamed authority: all new information; the last
+line plants the word E1 pays off.
+P12 TAKE-VIA-P6/P11, REJECT the maximal reading. The surprise was never
+"watching" — it is the want (to pass) and the structure (the visitor is the
+founder); with P6/P11 the reveals now point there. /app stays: its content
+is the cover story being TRUE, which is frame material, not premise rerun.
+P13 TAKE (silent misrouting). Amendments: C3 freeze requires a non-hero
+section and a scroll-past-then-return pattern; "long stills" require an
+active session (input within 30s, page visible); every inference the
+scheduler makes is inspectable in the debug overlay; thresholds
+conservative.
+P14 TAKE (experiment fragility). De-staged: the restoration fires when the
+subtracted element's region is in-viewport during an active session on the
+gated visit; if never witnessed within its window, fallback = present at
+next visit-start and, uniquely, no ledger cover-up ever posts. Only on the
+investigative path; the casual path proceeds directly to E1.
+P15 TAKE. Beats re-indexed to phases, not visit numbers; full arc ≈ 9–10
+visits across ≥7 distinct days; all constants in one tunable module.
+P16 TAKE (sunset wistfulness). Rewritten cold: "Loam is winding down." /
+"The beta concluded on <date>. We reached the coverage we needed." /
+"Sessions: 1 subject." / conditional "Data will be retained." Nothing
+thanks anyone. Nothing is served "with care."
+P17 TAKE-PARTIAL. The pre-humbled rage-target is cut (illegible wink). The
+backdated changelog and the bot-row stay — REJECT with reason: they are
+evidence in the founder-structure (v1 was the intake interview), they do
+plot work (the repeated lie), and the punch-up's own verdict-6 disposition
+credits this machinery.
+P18 TAKE — the thinning era carries the on-page countdown (P7) and the
+persistent maintenance banner (P8), so late quiet reads as approaching,
+not exhausted.
+
+Verdict-2 residue accepted knowingly: Overheard remains words. It is one of
+two word-moments in the site's life, neither describes the visitor, and the
+alternative (cutting the only proof of a second party) costs the plot more
+than four cold logistics lines cost the doctrine.
