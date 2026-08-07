@@ -113,6 +113,33 @@ export function startArc() {
     if (M >= 5 && M < 7 && P().toyGifted && !P().broken) theBreak();
   });
 
+  // The stillness invitation. The hold-gated beats (M4, M8) must never be
+  // an invisible wall: if the visitor keeps moving, the creature asks for
+  // stillness in the shared language — it points at "still." and breathes
+  // a slow, held rhythm where their finger last was.
+  let lastHoldAt = 0;
+  let lastActivityAt = Date.now();
+  let lastTouchPt = { x: innerWidth / 2, y: innerHeight * 0.6 };
+  on('gesture.hold', () => (lastHoldAt = Date.now()));
+  on('touch.down', (d) => {
+    lastActivityAt = Date.now();
+    lastTouchPt = { x: d.x, y: d.y };
+  });
+  setInterval(() => {
+    const holdGated = (M === 4) || (M === 8);
+    if (!holdGated || P().ended) return;
+    const active = Date.now() - lastActivityAt < 30000;
+    const noRecentHold = Date.now() - lastHoldAt > 40000;
+    if (active && noRecentHold) {
+      stage.trembleWord('STILL', true);
+      setTimeout(() => stage.trembleWord('STILL', false), 3200);
+      skin.leanTo(lastTouchPt.x, lastTouchPt.y, 0.6);
+      [0, 900, 1800].forEach((t, i) =>
+        setTimeout(() => skin.ringAt(lastTouchPt.x, lastTouchPt.y, 0.3 + i * 0.1), t)
+      );
+    }
+  }, 24000);
+
   tick();
 }
 
