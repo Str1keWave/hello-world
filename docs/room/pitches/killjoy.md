@@ -66,23 +66,22 @@ starve. Two of them break the room's own paper; they are marked.
   Don't spend it. Visits 1–2 are mandated perfect; the early-anomaly channel
   is then restricted to REMOVALS only: a testimonial gone, a pricing tier
   missing, one fewer nav item. Nothing added, nothing wrong — just less,
-  reflowed so nothing looks deleted. Seed visit 1 slightly over-full so there
-  is fat to lose.
+  reflowed so nothing looks deleted. Seed visit 1 over-full so there is fat
+  to lose.
 - **Trigger:** Second or third return, one removal per settlement at most.
-- **Feels like:** Was there a fourth testimonial? They can't check — there is
-  no diff, only their memory, which is now the unreliable instrument.
-- **Answers:** Q3 — doubt about memory is the return-visit engine; you come
-  back to recount the testimonials.
+- **Feels like:** Was there a fourth testimonial? They can't check — no diff
+  exists, only their memory, now the unreliable instrument.
+- **Answers:** Q3 — memory-doubt is the return engine; you come back to
+  recount the testimonials.
 
 ## 6. Spent is spent (PERSISTENCE)
 
 - **Mechanism:** Once-flags mirror across localStorage, cookie, and
   IndexedDB; any surviving channel restores the rest. A storage wipe is
-  detected and produces NO response — no reserved line, no acknowledgment.
-  Every consumed moment stays consumed. The wiper gets the visit-1 mask,
-  pixel-perfect, and nothing else, ever again. The research suggests holding
-  one response in reserve for the wipe; I cut that too. Playing dead is the
-  response.
+  detected and produces NO response. Every consumed moment stays consumed.
+  The wiper gets the visit-1 mask, pixel-perfect, and nothing else, ever
+  again. The research suggests holding one response in reserve for the wipe;
+  I cut that too. Playing dead is the response.
 - **Trigger:** Any visitor-reachable reset, ever.
 - **Feels like:** They burn it down to see the trick again and the site is
   simply, permanently, a good landing page. They can never prove it was ever
@@ -91,18 +90,19 @@ starve. Two of them break the room's own paper; they are marked.
 
 ## 7. Dialogue is the damage meter (ECONOMY MECHANIC) — BREAKS the board
 
-- **Mechanism:** The board budgets ≤5 dialogue moments and ≤1 direct address;
-  every pitch in this room will treat those as targets. Invert them: the want
-  (Q1) is to remain an ordinary landing page — to be believed. Speech is the
-  site LOSING composure; each spent slot is a wound the visitor inflicted.
-  The arc is authored so a gentle visitor hears zero, and the direct-address
-  slot can go unspent to the end — wired, real, never used.
-- **Trigger:** Dialogue fires only when a visitor action breaks containment;
-  the counted cost is the plot.
-- **Feels like:** The visitor who wrote the budget waits for the second-person
-  moment. It never comes. The withheld line is the ending's negative space.
-- **Answers:** Q1, and Q5 — the author allotted the site one address, and the
-  site declines the allowance.
+- **Mechanism:** The board's budgets (≤5 dialogue, ≤1 direct address) will be
+  treated by every pitch as targets. Invert them: the want (Q1) is to remain
+  an ordinary landing page — to be believed. Speech is the site LOSING
+  composure; each spent slot is a wound the visitor inflicted. A gentle
+  visitor hears zero; the direct-address slot can go unspent to the end —
+  wired, real, never used.
+- **Trigger:** Dialogue fires only when the visitor breaks containment; the
+  counted cost is the plot.
+- **Feels like:** The visitor who wrote the budget waits for the
+  second-person moment. It never comes. The withheld line is the ending's
+  negative space.
+- **Answers:** Q1, and Q5 — the author allotted one address; the site
+  declines the allowance.
 
 ---
 

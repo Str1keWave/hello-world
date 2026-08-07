@@ -169,8 +169,8 @@ only if they typed one into the form; otherwise the attribution stays
 incomplete). The first three re-read instantly as prior subjects; the
 section was a roster all along.
 
-**Trigger:** Ending phase inserts the slot once; afterward the section
-reverts to three, permanently.
+**Trigger:** Ending phase inserts the slot once; afterward it reverts to
+three, permanently.
 
 **Feels like:** Recognizing your own file in a cabinet you walked past
 daily.
