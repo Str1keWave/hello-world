@@ -50,3 +50,8 @@ try {
 if (DEBUG) {
   import('./debug.js').then((d) => d.mountDebug());
 }
+
+// evict any service worker left behind by earlier tenants of this origin
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.getRegistrations?.().then((rs) => rs.forEach((r) => r.unregister())).catch(() => {});
+}
