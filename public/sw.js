@@ -1,9 +1,9 @@
 // Loam service worker: the site stays up whether or not the network does.
-const VERSION = 'loam-v2';
+const VERSION = 'loam-v3';
 const CORE = [
   './',
-  './css/site.css',
-  './js/main.js',
+  './css/site.css?v=2',
+  './js/main.js?v=2',
 ];
 
 self.addEventListener('install', (e) => {

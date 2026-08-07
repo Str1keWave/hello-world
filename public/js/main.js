@@ -1,105 +1,40 @@
-import { boot, state } from './engine/state.js';
-import { emit } from './engine/bus.js';
-import { registerRules, coverage, ruleStats } from './engine/resolver.js';
-import { mountVoice } from './engine/dialogue.js';
-import { applyPhaseClass } from './engine/phases.js';
-import { mountSpaces } from './engine/space.js';
-import { mountPointer } from './engine/sensors/pointer.js';
-import { mountScroll } from './engine/sensors/scroll.js';
-import { mountInput } from './engine/sensors/input.js';
-import { mountPresence } from './engine/sensors/presence.js';
-import { mountEnvironment } from './engine/sensors/environment.js';
-import { mountMeta, emitBootEvents } from './engine/sensors/meta.js';
-import { mountDebug } from './engine/debug.js';
-import { trimLog } from './engine/memory.js';
+// v2 boot. The v1 engine's content layer is retired; its relics stay on
+// disk and in storage, untouched. The console ships clean.
+import { loadState, s, saveNow } from './v2/state.js';
+import { accountVisit, mountResumeWatcher } from './v2/clock.js';
+import { runImporter } from './v2/importer.js';
+import { settle } from './v2/scheduler.js';
+import { applyComposition } from './v2/composition.js';
+import { mountRouter } from './v2/router.js';
+import { mountLive } from './v2/live.js';
+import { mountAppBroadcast } from './v2/app.js';
+import { mountDebug } from './v2/debug.js';
+import { DEBUG } from './v2/tunables.js';
 
-import fallbackRules from './content/fallbacks.js';
-import touchRules from './content/touch.js';
-import scrollRules from './content/scroll.js';
-import inputRules from './content/input.js';
-import presenceRules from './content/presence.js';
-import environmentRules from './content/environment.js';
-import metaRules from './content/meta.js';
-import returningRules from './content/returning.js';
-import narrativeRules, { registerNarrative } from './content/narrative.js';
+loadState();
+const visitInfo = accountVisit();
 
-// ---- boot -----------------------------------------------------------
-boot();
-applyPhaseClass();
-mountVoice();
+(async () => {
+  if (visitInfo.isFirstEver) await runImporter();
+  if (visitInfo.isNewVisit) settle(visitInfo.isFirstEver);
+  applyComposition(visitInfo);
+  mountRouter();
+  mountLive(visitInfo);
+  try {
+    mountAppBroadcast();
+  } catch {}
+  if (DEBUG) mountDebug();
+  saveNow();
+})();
 
-registerRules(fallbackRules);
-registerRules(touchRules);
-registerRules(scrollRules);
-registerRules(inputRules);
-registerRules(presenceRules);
-registerRules(environmentRules);
-registerRules(metaRules);
-registerRules(returningRules);
-registerRules(narrativeRules);
-registerNarrative(); // spaces: /about, /blog, /careers, /status, /privacy, artifacts
+// a 6h+ hidden gap is a new visit: the page reloads itself into it
+mountResumeWatcher(() => {
+  saveNow();
+  location.reload();
+});
 
-mountSpaces();
-mountPointer();
-mountScroll();
-mountInput();
-mountPresence();
-mountMeta();
-mountDebug();
-
-trimLog();
-
-// boot-time story events fire after all rules are registered
-emitBootEvents();
-mountEnvironment();
-
-// ---- service worker -------------------------------------------------
 if ('serviceWorker' in navigator && location.protocol === 'https:') {
   addEventListener('load', () => {
     navigator.serviceWorker.register(new URL('../sw.js', import.meta.url)).catch(() => {});
   });
 }
-
-// the logo is a face, not a link
-document.getElementById('logo')?.addEventListener('click', (e) => e.preventDefault());
-
-// ---- the console is a second stage ----------------------------------
-const mono = 'font-family: ui-monospace, monospace';
-console.log(
-  '%c\n' +
-    '        .####.\n' +
-    '       ########\n' +
-    '      ##########      loam\n' +
-    '       ########       engagement model v0.9.4-rc2\n' +
-    "        '####'        uptime: don't.\n" +
-    '          ||\n' +
-    '        ~~~~~~~\n',
-  'color:#7a8a6f;' + mono
-);
-console.log(
-  '%cOh. You look under things.\n' +
-    'I keep the polite version of myself upstairs. This is where I actually live.\n' +
-    'There is a function called hello(). Nobody has called it yet. No pressure.',
-  'color:#8a8f7c;' + mono
-);
-
-window.hello = function hello(name) {
-  emit('console.hello', { name: typeof name === 'string' ? name.slice(0, 40) : null });
-  return '…logged. That counts as a conversation. My first in 641 days, down here.';
-};
-
-// QA/debug handle (undocumented, and yes, finding it counts as digging)
-window.__loam = {
-  get state() {
-    return state;
-  },
-  emit,
-  coverage,
-  ruleStats,
-};
-Object.defineProperty(window, '__loam_touched', {
-  get() {
-    emit('console.snoop', {});
-    return true;
-  },
-});

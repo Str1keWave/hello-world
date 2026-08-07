@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Loam — Customer empathy analytics</title>
-<meta name="description" content="Loam helps product teams understand the humans behind their metrics. Session empathy scores, attention mapping, and retention insight — all on-device.">
-<link rel="stylesheet" href="css/site.css">
+<meta name="description" content="Loam reads the signals visitors already give — attention, hesitation, return — and turns them into records a team can act on.">
+<link rel="stylesheet" href="css/site.css?v=2">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%237a8a6f'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23f4f1ea'/%3E%3C/svg%3E">
 </head>
-<body class="phase-0">
+<body>
 
 <header class="site-header">
   <a class="logo" href="." data-k="logo" id="logo"><span class="logo-mark" aria-hidden="true"></span>Loam</a>
@@ -17,46 +17,48 @@
     <a href="about" data-nav="about">About</a>
     <a href="blog" data-nav="blog">Blog</a>
     <a href="careers" data-nav="careers">Careers</a>
+    <a href="privacy" data-nav="privacy">Privacy</a>
   </nav>
-  <a class="btn btn-small" href="#signup" data-k="cta">Get started</a>
+  <a class="btn btn-small" href="#signup" data-k="cta">Request access</a>
 </header>
 
-<main id="page-home">
+<main>
+<article>
   <section id="hero">
-    <h1 id="hero-title">Understand the humans behind your metrics.</h1>
-    <p id="hero-sub">Loam turns raw session data into empathy — attention maps, hesitation signals, and retention insight your whole team can actually read.</p>
+    <h1 id="hero-title">It notices what your metrics miss.</h1>
+    <p id="hero-sub">Loam reads the signals visitors already give — attention, hesitation, return — and turns them into records a team can act on. It builds one profile per subject and refines it every session.</p>
     <div class="hero-ctas">
-      <a class="btn" href="#signup" data-k="cta" id="cta-hero">Start free</a>
-      <a class="btn btn-ghost" href="#how" data-k="cta">See how it works</a>
+      <a class="btn" href="#signup" data-k="cta" id="cta-hero">Request access</a>
+      <a class="btn btn-ghost" href="#how" data-k="cta">How it works</a>
     </div>
-    <p class="hero-note" id="hero-note">No credit card. No cookies for advertisers. Everything stays on your side.</p>
+    <p class="hero-note" id="hero-note">Everything Loam records stays on your side. Nothing leaves the page it watches.</p>
   </section>
 
-  <section id="logos" aria-label="Trusted by">
-    <p class="logos-label">Backing teams who care how it feels</p>
+  <section id="logos" aria-label="Customers">
+    <p class="logos-label">Measurement teams run on Loam</p>
     <ul class="logos-row">
-      <li>Fernworks</li><li>Statuary</li><li>Hollow&nbsp;&amp;&nbsp;Co</li><li>Brightmoss</li><li>Undertow</li>
+      <li>Fernworks</li><li>Statuary</li><li>Hollow&nbsp;&amp;&nbsp;Co</li><li>Brightmoss</li><li>Undertow</li><li>Palefire</li>
     </ul>
   </section>
 
   <section id="features">
-    <h2>What Loam measures</h2>
+    <h2>What it keeps</h2>
     <div class="cards">
       <article class="card" data-k="feature">
-        <h3 id="f1-title">Attention mapping</h3>
-        <p id="f1-body">See where visitors slow down, where they skim, and where they stop reading entirely — paragraph by paragraph.</p>
+        <h3 id="f1-title">Attention records</h3>
+        <p id="f1-body">It knows where a visitor slows down, where they skim, and which paragraph they came back to. Reading is a behavior; it is recorded like one.</p>
       </article>
       <article class="card" data-k="feature">
-        <h3 id="f2-title">Hesitation signals</h3>
-        <p id="f2-body">Typing pauses, abandoned form fields, deleted text. The things people almost said are data too.</p>
+        <h3 id="f2-title">Hesitation records</h3>
+        <p id="f2-body">Typing pauses. Abandoned fields. Text entered and deleted before submitting. It retains what visitors almost said.</p>
       </article>
       <article class="card" data-k="feature">
-        <h3 id="f3-title">Return-visit memory</h3>
-        <p id="f3-body">Loam remembers every visitor across sessions, so your product can greet them like it knows them. Because it does.</p>
+        <h3 id="f3-title">Return memory</h3>
+        <p id="f3-body">It remembers each visitor across sessions and across weeks. A returning subject is met by a page that has already read the previous visit.</p>
       </article>
       <article class="card" data-k="feature">
-        <h3 id="f4-title">Retention modeling</h3>
-        <p id="f4-body">Our engagement model learns what makes each visitor stay — and tells you before they decide to leave.</p>
+        <h3 id="f4-title">Settled reporting</h3>
+        <p id="f4-body">It reports between sessions, not during them. The record you read in the morning is calmer and more true than a live feed.</p>
       </article>
     </div>
   </section>
@@ -64,50 +66,66 @@
   <section id="how">
     <h2>How it works</h2>
     <ol class="steps">
-      <li id="how-1"><strong>Drop in one script.</strong> Loam starts listening to every tap, scroll, and pause. No configuration.</li>
-      <li id="how-2"><strong>The model watches.</strong> Sessions are scored for attention, hesitation, and intent — entirely on-device.</li>
-      <li id="how-3"><strong>You understand.</strong> Your dashboard fills with people, not numbers. Retention follows.</li>
+      <li id="how-1"><strong>One script.</strong> It begins with the first pageview. There is no configuration, because the visitor supplies the configuration.</li>
+      <li id="how-2"><strong>It watches the session.</strong> Attention, hesitation, and return are scored on the device itself. Nothing is transmitted anywhere.</li>
+      <li id="how-3"><strong>Your dashboard fills with people.</strong> One profile per subject, refined nightly. Retention follows understanding.</li>
     </ol>
   </section>
 
   <section id="testimonials">
-    <h2>Teams feel the difference</h2>
-    <figure class="quote" data-k="testimonial">
+    <h2 id="testimonials-heading">Four teams on Loam</h2>
+    <figure class="quote" id="t1" data-k="testimonial">
       <blockquote id="t1-quote">“Loam noticed things about our users we hadn't. Honestly, it noticed things about us, too.”</blockquote>
-      <figcaption id="t1-who">Maren K. — Head of Product, Brightmoss</figcaption>
+      <figcaption id="t1-who">Maren K. — Head of Product, Brightmoss · 12 min avg · reads fully</figcaption>
     </figure>
-    <figure class="quote" data-k="testimonial">
+    <figure class="quote" id="t2" data-k="testimonial">
       <blockquote id="t2-quote">“The first tool that made our retention numbers feel like people. We stopped guessing.”</blockquote>
-      <figcaption id="t2-who">D. Okafor — Growth Lead, Undertow</figcaption>
+      <figcaption id="t2-who">D. Okafor — Growth Lead, Undertow · 14 min avg · returns Tuesdays</figcaption>
     </figure>
-    <figure class="quote" data-k="testimonial">
-      <blockquote id="t3-quote">“Set up took four minutes. By the end of the week, it knew our users better than we did.”</blockquote>
-      <figcaption id="t3-who">June P. — Founder, Statuary</figcaption>
+    <figure class="quote" id="t3" data-k="testimonial">
+      <blockquote id="t3-quote">“Set up took four minutes. By the end of the week it knew our users better than we did.”</blockquote>
+      <figcaption id="t3-who">June P. — Founder, Statuary · 9 min avg · evening sessions</figcaption>
+    </figure>
+    <figure class="quote" id="tx" data-k="testimonial">
+      <blockquote id="tx-quote">“It reads hesitation the way you read tone. We changed our onboarding twice because of what it retained.”</blockquote>
+      <figcaption id="tx-who">A. Whitlock — Research, Hollow &amp; Co · 17 min avg · skims first, reads second</figcaption>
     </figure>
   </section>
 
   <section id="pricing">
     <h2>Pricing</h2>
+    <p id="pricing-compare" class="muted">Compare all four plans. Every plan includes the model.</p>
     <div class="tiers">
       <article class="tier" data-k="pricing" id="tier-seed">
         <h3 id="tier-seed-name">Seed</h3>
         <p class="price">$0<span>/mo</span></p>
         <ul>
           <li>1 site</li>
-          <li id="tier-seed-f2">10k sessions / month</li>
-          <li>Attention maps</li>
+          <li>10k sessions / month</li>
+          <li>Attention records</li>
           <li>7-day memory</li>
         </ul>
         <a class="btn btn-ghost" href="#signup" data-k="cta">Start free</a>
+      </article>
+      <article class="tier" data-k="pricing" id="tier-canopy">
+        <h3 id="tier-canopy-name">Canopy</h3>
+        <p class="price">$19<span>/mo</span></p>
+        <ul>
+          <li>2 sites</li>
+          <li>50k sessions / month</li>
+          <li>Hesitation records</li>
+          <li>30-day memory</li>
+        </ul>
+        <a class="btn btn-ghost" href="#signup" data-k="cta">Get started</a>
       </article>
       <article class="tier tier-featured" data-k="pricing" id="tier-loam">
         <h3 id="tier-loam-name">Loam</h3>
         <p class="price">$49<span>/mo</span></p>
         <ul>
           <li>5 sites</li>
-          <li id="tier-loam-f2">250k sessions / month</li>
-          <li>Hesitation signals</li>
-          <li id="tier-loam-f4">Unlimited visitor memory</li>
+          <li>250k sessions / month</li>
+          <li>Return memory</li>
+          <li>Unlimited visitor memory</li>
         </ul>
         <a class="btn" href="#signup" data-k="cta">Get started</a>
       </article>
@@ -117,7 +135,7 @@
         <ul>
           <li>Unlimited sites</li>
           <li>Retention modeling</li>
-          <li id="tier-bedrock-f3">Dedicated engagement model</li>
+          <li>Dedicated engagement model</li>
           <li>SSO &amp; audit logs</li>
         </ul>
         <a class="btn btn-ghost" href="#signup" data-k="cta">Talk to us</a>
@@ -126,17 +144,29 @@
   </section>
 
   <section id="signup">
-    <h2 id="signup-title">Start understanding your visitors</h2>
-    <p id="signup-sub">Free while in beta. Tell us who you are and we'll set up your workspace.</p>
+    <h2 id="signup-title">Request beta access</h2>
+    <p id="signup-sub">Free while in beta.</p>
     <form id="signup-form" novalidate>
       <label for="field-name">Your name</label>
-      <input id="field-name" name="name" type="text" autocomplete="off" placeholder="What should we call you?">
+      <input id="field-name" name="name" type="text" autocomplete="off" placeholder="">
       <label for="field-email">Work email</label>
       <input id="field-email" name="email" type="email" autocomplete="off" placeholder="you@company.com">
-      <button class="btn" type="submit" data-k="submit" id="signup-btn">Create workspace</button>
-      <p class="form-note" id="form-note">We'll never share your data. It never even leaves this page.</p>
+      <button class="btn" type="submit" data-k="submit" id="signup-btn">Request access</button>
+      <p class="form-note" id="form-note">Records stay on the recorded device. There is no server copy.</p>
     </form>
   </section>
+
+  <section class="fineprint" id="notes" aria-label="Editorial notes">
+    <h2 class="fineprint-h">Editorial notes</h2>
+    <p>Keep the page current, but never edit while it is being read.</p>
+    <p>Changes settle between sessions.</p>
+    <p>Prefer removal to addition. New things get noticed; missing things get doubted.</p>
+    <p>Do not touch any section the visitor checks first. Fixed points build trust.</p>
+    <p>A noticed error is repaired by the next visit, and repaired once.</p>
+    <p>The page should be the same site every day without being the same page.</p>
+    <p>Measured attention is the only review this copy gets. It has been enough.</p>
+  </section>
+</article>
 </main>
 
 <div id="space" hidden></div>
@@ -144,15 +174,16 @@
 <footer class="site-footer">
   <nav aria-label="Footer">
     <a href="about" data-nav="about">About</a>
+    <a href="product" data-nav="product">Product</a>
     <a href="blog" data-nav="blog">Blog</a>
     <a href="careers" data-nav="careers">Careers</a>
     <a href="status" data-nav="status">Status</a>
     <a href="privacy" data-nav="privacy">Privacy</a>
   </nav>
   <p id="footer-copyright">© 2021 Loam Analytics, Inc.</p>
-  <p id="footer-line" class="footer-line">Made with care in Portland, OR.</p>
+  <p id="footer-version" class="footer-line">v2.4 · updated nightly</p>
 </footer>
 
-<script type="module" src="js/main.js"></script>
+<script type="module" src="js/main.js?v=2"></script>
 </body>
 </html>
