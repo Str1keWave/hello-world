@@ -55,12 +55,11 @@ We can force one — with an appointment.
 **Mechanism:** Mid-arc, the status page (already in the footer) posts a
 scheduled maintenance window: a real future date and hour, computed from
 first-visit timestamp. Visiting DURING that window is the only time the
-second frame's entrance is reachable. Miss it, and the once-flag closes
-that route forever; the changelog later shows the work completed. The
-site keeps an appointment whether or not the visitor does.
+second frame's entrance is reachable. Miss it, and a once-flag closes that
+route forever; the changelog later shows the work completed.
 
-**Trigger:** Status page renders the window at phase 2; entrance active
-only within the real wall-clock interval; permanent flag either way.
+**Trigger:** Window renders at phase 2; entrance active only within the
+real wall-clock interval; permanent flag either way.
 
 **Feels like:** A calendar obligation to a static website. Missing it costs
 something real.
@@ -103,41 +102,38 @@ The site casts them as two — analyst and subject, simultaneously.
 **Mechanism:** With the dashboard (pitch 4) open in tab A and the landing
 page in tab B, BroadcastChannel streams tab B's live session into tab A's
 subject view — scrolling the landing page moves the attention map in real
-time. The product demonstrably works, and its only user is its only
-subject. The frame under "fake startup" is "functioning instrument."
+time. The product demonstrably works; its only user is its only subject.
+The frame under "fake startup" is "functioning instrument."
 
-**Trigger:** Two same-origin tabs, dashboard unlocked; works exactly as the
-product copy describes, no extra commentary.
+**Trigger:** Two same-origin tabs, dashboard unlocked; behaves exactly as
+the product copy describes, no commentary.
 
-**Feels like:** Operating the surveillance tool on yourself and being unable
-to stop watching yourself watch.
+**Feels like:** Operating the surveillance tool on yourself, live.
 
-**Why rare:** Requires deliberate two-tab investigation; pure behavior, no
-text budget spent.
+**Why rare:** Requires deliberate two-tab investigation; no text budget
+spent.
 
-**Answers:** Q2 (uses Q5's irony mechanically: they built the watcher's
-watcher).
+**Answers:** Q2 (uses Q5 mechanically: they built the watcher's watcher).
 
 ---
 
 ## 6. The Company Dies on Your Clock
 
-**Mechanism:** The subpages (about, blog, careers, status — currently
-stubs) form a decaying layer. Careers postings close one by one; the blog's
-posting cadence stops; uptime figures slip; a team page loses a member.
-Every date is computed from first-visit timestamp, so binger and drifter
-each see a coherent wind-down synchronized to their own arc. Under
-"startup landing page" is "company that ended"; under that: the pages are
-still being edited *after* the ending — by what remains.
+**Mechanism:** The subpages (about, blog, careers, status) form a decaying
+layer. Careers postings close one by one; the blog's cadence stops; uptime
+figures slip; a team page loses a member. Every date is computed from
+first-visit timestamp, so binger and drifter each see a coherent wind-down
+synchronized to their own arc. Under "startup landing page" is "company
+that ended"; under that: the pages are still being edited *after* the
+ending — by what remains.
 
 **Trigger:** Content states keyed to days-since-first-visit; final state
 locks with a once-flag.
 
-**Feels like:** Reading a place's last months in the wrong order, then
-realizing the lights are on.
+**Feels like:** Reading a place's last months out of order, then realizing
+the lights are on.
 
-**Why rare:** All edits are between-visit, unacknowledged, screenshot-proof
-only against memory.
+**Why rare:** All edits are between-visit and unacknowledged.
 
 **Answers:** Q2 (also Q3: decay gives drifters a reason returns matter).
 
@@ -149,19 +145,18 @@ only against memory.
 ("7-day memory," "Unlimited visitor memory"). Keep every tier's copy
 literally true of the site's own memory behavior toward the visitor. The
 final beat re-renders the existing pricing table as a genuine choice: the
-visitor selects which retention tier the site applies to THEM — a real,
-once-flagged, irreversible commitment (short memory means real deletion
-across all channels). No new page, no explanation; the ordinary table
-becomes the ending's control panel.
+visitor selects which retention tier the site applies to THEM — once-
+flagged, irreversible, with short memory meaning real deletion across all
+channels. No new page; the ordinary table becomes the ending's control
+panel.
 
 **Trigger:** Final phase repurposes existing tier CTAs; choice writes
-permanent state; endings diverge by tier chosen.
+permanent state; endings diverge by tier.
 
-**Feels like:** A pricing page they skimmed on day one is suddenly about
-them, and clicking costs something.
+**Feels like:** A pricing page skimmed on day one is suddenly about them,
+and clicking costs something.
 
-**Why rare:** Recontextualization by reuse, not addition; spends zero
-dialogue budget.
+**Why rare:** Recontextualization by reuse; zero dialogue budget.
 
 **Answers:** Q4 (complicity per P16: they choose).
 
@@ -169,22 +164,21 @@ dialogue budget.
 
 ## 8. The Fourth Testimonial Slot
 
-**Mechanism:** Seed now: each of the three testimonials carries small
-structured metadata — a duration, a visit count, a time-of-day habit —
-formatted consistently. These numbers are authored to read as ordinary
-copy. At the ending, a fourth figure appears in the same format, its
-metadata drawn from the visitor's actual recorded trajectory (name only if
-they typed one into the form; otherwise the slot's attribution stays
-structurally incomplete). The first three re-read instantly as prior
-subjects; the section was a roster all along.
+**Mechanism:** Seed now: each testimonial carries small structured
+metadata — a duration, a visit count, a time-of-day habit — formatted
+consistently and reading as ordinary copy. At the ending, a fourth figure
+appears in the same format, its metadata drawn from the visitor's actual
+recorded trajectory (name only if they typed one into the form; otherwise
+the attribution stays structurally incomplete). The first three re-read
+instantly as prior subjects; the section was a roster all along.
 
-**Trigger:** Ending phase inserts the slot once; survives nothing — after
-the arc closes, the section reverts to three, permanently.
+**Trigger:** Ending phase inserts the slot once; afterward the section
+reverts to three, permanently.
 
-**Feels like:** Recognizing your own file in a filing cabinet you walked
-past daily.
+**Feels like:** Recognizing your own file in a cabinet you walked past
+daily.
 
-**Why rare:** This IS the one direct-address expenditure (≤1 budget),
-spent as an edit rather than speech.
+**Why rare:** This IS the one direct-address expenditure, spent as an edit
+rather than speech.
 
 **Answers:** Q4 (also Q1: the site collects completed subjects).
