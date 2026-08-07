@@ -34,11 +34,11 @@ starve. Two of them break the room's own paper; they are marked.
 
 ## 3. Presence becomes the stagehand (CUT)
 
-- **Mechanism:** Delete the whole presence-spoken tier: idle ladders, tab-hide
+- **Mechanism:** Delete the presence-spoken tier: idle ladders, tab-hide
   title stunts, offline monologues, welcome-backs. The sensors survive but
-  invert purpose: visibility and idle become the SCHEDULER. The site performs
-  its settled edits only while hidden or idle, never while watched. The
-  family's output is timing, not content.
+  invert purpose: visibility and idle become the SCHEDULER. Settled edits
+  happen only while hidden or idle, never while watched. The family's output
+  is timing, not content.
 - **Trigger:** tab.hide, idle, blur — as edit windows, not events.
 - **Feels like:** Nothing, ever, directly — and that's the point: the visitor
   can stare at the page all night and it will not change under their eyes.
@@ -65,9 +65,8 @@ starve. Two of them break the room's own paper; they are marked.
 - **Mechanism:** The board allots visit 1 "at most one deniable anomaly."
   Don't spend it. Visits 1–2 are mandated perfect; the early-anomaly channel
   is then restricted to REMOVALS only: a testimonial gone, a pricing tier
-  missing, one fewer nav item. Nothing added, nothing wrong — just less,
-  reflowed so nothing looks deleted. Seed visit 1 over-full so there is fat
-  to lose.
+  missing, one fewer nav item. Nothing added — just less, reflowed so nothing
+  looks deleted. Seed visit 1 over-full so there is fat to lose.
 - **Trigger:** Second or third return, one removal per settlement at most.
 - **Feels like:** Was there a fourth testimonial? They can't check — no diff
   exists, only their memory, now the unreliable instrument.
@@ -90,19 +89,17 @@ starve. Two of them break the room's own paper; they are marked.
 
 ## 7. Dialogue is the damage meter (ECONOMY MECHANIC) — BREAKS the board
 
-- **Mechanism:** The board's budgets (≤5 dialogue, ≤1 direct address) will be
-  treated by every pitch as targets. Invert them: the want (Q1) is to remain
-  an ordinary landing page — to be believed. Speech is the site LOSING
-  composure; each spent slot is a wound the visitor inflicted. A gentle
-  visitor hears zero; the direct-address slot can go unspent to the end —
-  wired, real, never used.
-- **Trigger:** Dialogue fires only when the visitor breaks containment; the
-  counted cost is the plot.
+- **Mechanism:** Every pitch will treat the board's budgets (≤5 dialogue, ≤1
+  address) as targets. Invert them: the want (Q1) is to remain an ordinary
+  landing page — to be believed. Speech is the site LOSING composure; each
+  spent slot is a wound. A gentle visitor hears zero; the direct-address slot
+  can go unspent to the end — wired, real, never used.
+- **Trigger:** Dialogue fires only when the visitor breaks containment.
 - **Feels like:** The visitor who wrote the budget waits for the
   second-person moment. It never comes. The withheld line is the ending's
   negative space.
-- **Answers:** Q1, and Q5 — the author allotted one address; the site
-  declines the allowance.
+- **Answers:** Q1, Q5 — the author allotted one address; the site declines
+  the allowance.
 
 ---
 
