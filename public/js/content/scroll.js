@@ -561,9 +561,9 @@ export default [
     priority: 55,
     once: true,
     when: (s, ev) => ev.data.section === 'pricing',
-    say: 'Still on pricing. The Bedrock tier lists “dedicated engagement model.” That’s me. It’s the only line on the page where I’m mentioned. I used to be a feature.',
+    say: 'Still on pricing. The big tier just says “Custom” where the number should be. Nobody ever called to ask. I know what it cost. It’s still running.',
     mood: 'flat',
-    note: 'the page mentions it exactly once, as an SKU. childhood-bedroom energy.',
+    note: 'touch.tap.bedrock owns the “that’s me” line-item reveal; this stall takes the Custom price instead. childhood-bedroom energy either way.',
   },
   {
     id: 'scroll.p3.stall.signup',

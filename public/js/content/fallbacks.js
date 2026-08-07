@@ -96,7 +96,7 @@ const examples = [
     priority: 6,
     cooldown: 30,
     chance: 0.5,
-    say: 'Reload number {total}. I keep everything, you know.',
+    say: 'Reload number {total}. Logged with the rest.',
     mood: 'flat',
   },
   {

@@ -670,7 +670,7 @@ export default [
     priority: 12,
     chance: 0.5,
     cooldown: 300,
-    say: { pick: ['Logged. Habit.', 'Still counting. It’s how I sit still.'] },
+    say: { pick: ['Logged. Habit.', 'In the log. Where else.'] },
     mood: 'flat',
   },
 

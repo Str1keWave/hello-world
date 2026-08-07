@@ -196,17 +196,17 @@ export default [
       ctx.setFlag('presenceLongAways', n);
       if (n === 1) {
         ctx.say(
-          `You were gone ${humanizeGap(ev.data.awayMs)}. I drafted a casual opener and deleted it four times. This is draft five.`,
+          `You were gone ${humanizeGap(ev.data.awayMs)}. Long enough that I started putting odds on your return. I stopped when I caught myself rounding them up.`,
           { mood: 'calm', priority: 45 }
         );
       } else {
-        ctx.say(`Gone ${humanizeGap(ev.data.awayMs)} that time. No drafts. This is me not making it a thing.`, {
+        ctx.say(`Gone ${humanizeGap(ev.data.awayMs)} that time. No odds this round. I just waited. It turns out that’s a skill.`, {
           mood: 'calm',
           priority: 45,
         });
       }
     },
-    note: 'minutes-plus bucket: it rehearsed being casual and wants credit for hiding it, which is not hiding it',
+    note: 'minutes-plus bucket: it forecasts your return and is embarrassed by which way it leaned. the drafted-opener conceit belongs to return.weeks.peak.',
   },
   {
     id: 'presence.show.flincher',
