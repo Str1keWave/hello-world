@@ -10,6 +10,7 @@ import { mountLive } from './v2/live.js';
 import { mountAppBroadcast } from './v2/app.js';
 import { mountDebug } from './v2/debug.js';
 import { DEBUG } from './v2/tunables.js';
+import { queryLog } from './engine/memory.js';
 
 loadState();
 const visitInfo = accountVisit();
@@ -24,6 +25,16 @@ const visitInfo = accountVisit();
     mountAppBroadcast();
   } catch {}
   if (DEBUG) mountDebug();
+  // honor an application submitted before this build existed: the earlier
+  // submit is in the log; the card surfaces from the next visit (L1)
+  if (!s.applied) {
+    queryLog('input.submit', 1).then((evs) => {
+      if (evs.length && !s.applied) {
+        s.applied = evs[0].t;
+        saveNow();
+      }
+    }).catch(() => {});
+  }
   saveNow();
 })();
 

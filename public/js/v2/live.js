@@ -4,7 +4,7 @@
 import { T } from './tunables.js';
 import { s, save } from './state.js';
 import { logEvent } from '../engine/memory.js';
-import { restoreTestimonial } from './composition.js';
+import { restoreTestimonial, renderApplication } from './composition.js';
 
 function score(kind, n) {
   const w = T.investigation.weights[kind] || 0;
@@ -99,11 +99,13 @@ function mountSensing() {
       const name = nameInput.value.trim();
       if (name && /^[a-z][a-z'\- ]{1,29}$/i.test(name)) {
         s.name = name.slice(0, 30);
-        save();
       }
+      // an application ack is ordinary form UX, not a reaction
+      s.applied = s.applied || Date.now();
+      s.emailGiven = !!document.getElementById('field-email')?.value;
+      save();
       logEvent('input.submit', { named: !!name }, Date.now());
-      const btn = document.getElementById('signup-btn');
-      if (btn) btn.textContent = 'Requested';
+      renderApplication();
     });
   }
 }

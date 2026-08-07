@@ -77,11 +77,50 @@ export function applyComposition(visitInfo) {
   // simply back — and no ledger entry ever covers it
   if (s.experimentState === 3) restoreTestimonial();
 
+  // the application: the genre-native reason to return
+  renderApplication();
+
   // E1 — the address
   if (s.addressAt) renderFourthTestimonial();
 
   // E3 — pricing turn
   if (s.pricingLiveAt && !s.retention) armPricing();
+}
+
+function nextReviewLine() {
+  const realDay = T.dayMs === 24 * 3600 * 1000;
+  if (realDay) return 'Applications are reviewed nightly.';
+  const next = (Math.floor(Date.now() / T.dayMs) + 1) * T.dayMs;
+  const t = new Date(next);
+  return `Applications are reviewed nightly. Next review: ${String(t.getHours()).padStart(2, '0')}:${String(t.getMinutes()).padStart(2, '0')}.`;
+}
+
+export function renderApplication() {
+  if (!s.applied) {
+    const note = $('#form-note');
+    if (note) note.textContent = `Records stay on the recorded device. There is no server copy. ${nextReviewLine()}`;
+    return;
+  }
+  const form = $('#signup-form');
+  if (!form || document.getElementById('app-status')) return;
+  const g = gateLevel();
+  const status =
+    g >= 8 ? 'Final review.' :
+    g >= 6 ? 'Decision pending.' :
+    g >= 4 ? 'Reference sessions in collection.' :
+    g >= 2 ? 'Under review.' : 'Received.';
+  const pos = Math.max(1, 14 - 2 * g);
+  const card = document.createElement('div');
+  card.className = 'app-status';
+  card.id = 'app-status';
+  card.innerHTML = `
+    <div class="app-row"><span>Submitted</span><b>${new Date(s.applied).toISOString().slice(0, 10)}</b></div>
+    <div class="app-row"><span>Status</span><b>${status}</b></div>
+    <div class="app-row"><span>Queue position</span><b>${pos}</b></div>
+    <p class="muted app-note">${nextReviewLine()} Updates appear on this page. Loam does not send email during the beta; nothing leaves the page it watches.</p>`;
+  form.replaceWith(card);
+  const h = $('#signup-title');
+  if (h) h.textContent = 'Your application';
 }
 
 export function restoreTestimonial() {
