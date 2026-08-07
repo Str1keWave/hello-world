@@ -254,7 +254,7 @@ function theBreak() {
   });
   setTimeout(() => {
     skin.flickerStruggle(true);
-    nerves.sensitize(1.6);
+    nerves.sensitize(0.7); // multiplicative: <1 tightens the startle threshold
     mountRepair();
   }, 900);
 }

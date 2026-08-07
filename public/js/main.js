@@ -24,8 +24,12 @@ initLanguage();
 startArc();
 
 // thresholds persist — the only memory it keeps
-addEventListener('pagehide', () => {
+function saveNerves() {
   try { mark({ nerves: nervesSerialize() }); } catch {}
+}
+addEventListener('pagehide', saveNerves);
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) saveNerves();
 });
 
 // reduced motion: the bioluminescence dialect
