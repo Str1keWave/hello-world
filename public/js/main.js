@@ -56,9 +56,12 @@ mountEnvironment();
 // ---- service worker -------------------------------------------------
 if ('serviceWorker' in navigator && location.protocol === 'https:') {
   addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js').catch(() => {});
+    navigator.serviceWorker.register(new URL('../sw.js', import.meta.url)).catch(() => {});
   });
 }
+
+// the logo is a face, not a link
+document.getElementById('logo')?.addEventListener('click', (e) => e.preventDefault());
 
 // ---- the console is a second stage ----------------------------------
 const mono = 'font-family: ui-monospace, monospace';

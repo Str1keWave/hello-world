@@ -7,6 +7,14 @@ import { state } from './state.js';
 
 const spaces = new Map();
 
+// Base path of the deployment (works at "/" and under a subpath like
+// "/hello-world/"): this file lives at BASE + "js/engine/space.js".
+export const BASE = new URL('../../', import.meta.url).pathname;
+
+function logicalOf(fullPath) {
+  return fullPath.startsWith(BASE) ? '/' + fullPath.slice(BASE.length) : fullPath;
+}
+
 export function registerSpace(path, render) {
   spaces.set(path, render);
 }
@@ -21,18 +29,19 @@ export function mountSpaces() {
     const link = e.target.closest('[data-nav]');
     if (!link) return;
     e.preventDefault();
-    const path = new URL(link.href, location.href).pathname;
+    const path = logicalOf(new URL(link.href, location.href).pathname);
     try {
-      history.pushState({ loam: 'space', path }, '', path);
+      history.pushState({ loam: 'space', path }, '', BASE + path.slice(1));
     } catch {}
     openPath = path;
     renderPath(path);
   });
 
   // deep link straight into a space
-  if (location.pathname !== '/' && location.pathname !== '/index.html') {
-    openPath = location.pathname;
-    renderPath(location.pathname);
+  const logical = logicalOf(location.pathname);
+  if (logical !== '/' && logical !== '/index.html' && logical !== '/404.html') {
+    openPath = logical;
+    renderPath(logical);
   }
 }
 
@@ -78,7 +87,7 @@ export function closeSpace() {
   document.body.style.overflow = '';
   openPath = null;
   try {
-    history.pushState({ loam: 'room' }, '', '/');
+    history.pushState({ loam: 'room' }, '', BASE);
   } catch {}
   emit('space.close', {});
 }
