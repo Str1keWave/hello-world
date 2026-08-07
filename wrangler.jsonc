@@ -1,0 +1,9 @@
+{
+  // Loam — customer empathy analytics. Static marketing site.
+  "name": "loam-insights",
+  "compatibility_date": "2026-08-01",
+  "assets": {
+    "directory": "./public",
+    "not_found_handling": "single-page-application"
+  }
+}
