@@ -168,3 +168,77 @@ silently — first touch back is met a little quicker.
   play speeds halved; full arc still completable.
 - Debug (?debug=1 only): state readout + movement-skip buttons; console
   otherwise ships empty.
+
+---
+
+# PUNCH-UP RULINGS (all 14 answered before code)
+
+P1 TAKE (scroll collision, the room's blind spot). The stage fits one
+viewport exactly: a compact mobile municipal page, whole and visibly
+complete, position:fixed, touch-action:none, overscroll suppressed. Scroll
+does not exist in this world; nothing suggests it should. Flicks and drags
+belong entirely to the creature.
+P2 TAKE (minute one). Bounds added: first unmistakable life ≤ first touch
+or ≤4s idle. The FIRST touch of any kind, before the startle economy arms,
+fires the dodge — text near the finger flows away like fish from a hand,
+then resettles. Idle attract: one legible passing-cloud at ~4s. Startle
+recovery re-staged as a clenched, fast-breathing posture (legible), not
+column misalignment (sub-pixel wink, cut).
+P3 TAKE (gentleness gate). Progress gates on interaction volume/variety,
+NEVER on style. Habituation is ethologically honest: repeated non-harmful
+contact of any roughness loosens thresholds by itself. Gentleness shapes
+texture (how close it comes, how soon), not access. The all-thumbs visitor
+completes the arc with a skittish creature.
+P4 TAKE-PARTIAL (stillness worship). Held Breath demoted to ONE verb.
+Cadence rests varied: post-play settles, rests against your last stroke
+path, held breath as option. Speech onsets from any bonded moment; only
+SLACK (the word for still water) is stillness-born. The camouflage drive
+is defended behaviorally, never by absence: from first contact onward the
+posture is visibly imperfect — the creature is always in motion between
+hiding and reaching. Hiding that produces stillness for more than a beat
+is a bug.
+P5 TAKE (Held Breath contradictions). All payoffs at the wavefront: rings
+and deformation AROUND the finger, never under. Stage text user-select:
+none, touch-callout suppressed ("selectable" loses to the law). Hold =
+≤12px wander; palm-size and multi-point contacts ignored.
+P6 TAKE (Break legibility). Carrying defined (P11); collision is
+deterministic (flung mote trajectory × carried gift position, both near
+the thumb by construction); the shatter is a 600ms slow tableau BEFORE the
+flicker, so cause precedes reaction where the visitor is already looking.
+Flicker styled organic (rhythmic easing, posture-struggle), never
+artifact-like. If no organic collision occurs, the creature itself brings
+the gift into riskier play; never a scripted hit.
+P7 TAKE (repair as penance). Repair verbs are ACTIVE: gather shards (they
+faintly glow toward each other — affordance), return them to its region,
+strokes. Each gathered shard = a visible peek (progress within two
+touches, mechanized). Terminal-vs-repairable is answered by the shards
+themselves wanting reassembly.
+P8 TAKE-PARTIAL (speech legibility). The mote is a pseudopod of light
+visibly extruded from the body, straining toward the word; the word
+trembles under attention. Use-frequency floor: every word relied on by the
+endgame has been used ≥2 times in distinct contexts. Companion acceptance
+test added: the goodbye must be composable only of elements used at least
+twice WITH this visitor.
+P9 TAKE (duration honesty). Claim restated: 15–25 minutes authored, open
+play throughout (the toybox accumulates; nothing is consumed). Fluency
+gets its activity loop: pidgin question-games and deliberate-misuse jokes
+(word-play built on Wrong Guess).
+P10 TAKE. "page not found. found." is cut. Register lines must be
+composable from the stage inventory; audited at build.
+P11 TAKE (possession defined). The glyph: draggable object, loose physics.
+Possession = last mover. Swap = release near it and it takes; it pushes to
+your thumb and you take. Carried gift = soft spring-tether to the touch
+point while touching. Fallback: after three ignored offers, possession-swap
+becomes optional flavor and Movement 2 gates on sustained interaction.
+P12 TAKE-PARTIAL. The no-spot dodges — recoils from the approaching
+finger, never deadens. Refusal in motion is alive; a dead hit-region is
+not.
+P13 TAKE-PARTIAL (ending markers). Post-goodbye state: breath continues,
+slow and content — alive at rest, not gone; the conditions line holds the
+returned "slack" as its final, legible arrangement. The goodbye always has
+its two guaranteed elements: slack + the visitor's first motif (mandatory
+path guarantees both).
+P14 TAKE-PARTIAL. Reduced-motion gets a designed bioluminescence dialect
+(opacity/color breathing, blooms, instant-dim startle) — motion-free but
+never lifeless. The one-L Sorrel stays as private texture, load-bearing
+for nothing.
