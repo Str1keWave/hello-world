@@ -136,6 +136,36 @@ const rules = [
     note: 'message in a bottle; requires a user gesture, hence the tap trigger',
   },
 
+  {
+    id: 'narrative.phase3.loading-confession',
+    on: 'page.404',
+    phase: [3, 4],
+    priority: 28,
+    once: true,
+    when: (s) => (s.totals['page.404'] || 0) > 1,
+    say: 'Earlier — when these pages said “Loading” — I wasn’t loading anything. I was deciding. I decided fast, for what it’s worth. It just felt wrong to open the door instantly.',
+    mood: 'wary',
+    note: 'admits the fake loading states from phase 0/1',
+  },
+  {
+    id: 'narrative.upset.selection',
+    on: 'tap.rage',
+    phase: [2, 4],
+    priority: 12,
+    once: true,
+    when: (s) => (s.counters['tap.rage'] || 0) >= 3,
+    silent: true,
+    effect: (ctx) => {
+      ctx.selectionColor('#d8a08c');
+      ctx.favicon('upset');
+      setTimeout(() => {
+        ctx.selectionColor('#d9e2cf');
+        ctx.favicon(ctx.state.phase >= 2 ? 'awake' : 'neutral');
+      }, 90000);
+    },
+    note: 'selection highlight turns rust while it is upset; reverts after 90s',
+  },
+
   // artifact bookkeeping
   {
     id: 'narrative.artifact.seen',

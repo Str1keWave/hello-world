@@ -41,6 +41,20 @@ export function renderPath(path) {
   if (!render) return;
   const html = render(state, path);
   if (html == null) return;
+  // Early phases fake a loading state. (Phase 3 admits this was a lie.)
+  if (state.phase <= 1 && path !== '/end') {
+    spaceEl.innerHTML = `<div class="space-inner"><p class="muted">Loading…</p></div>`;
+    spaceEl.hidden = false;
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => {
+      if (!spaceEl.hidden) finishRender(path, html);
+    }, 1100);
+    return;
+  }
+  finishRender(path, html);
+}
+
+function finishRender(path, html) {
   spaceEl.innerHTML = `<div class="space-inner">${html}</div>`;
   spaceEl.hidden = false;
   spaceEl.scrollTop = 0;
