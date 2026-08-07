@@ -1,7 +1,7 @@
 // Port Sorrel. Boot order matters: body first, senses second, story last.
 import { loadPersist } from './persist.js';
 import { initSkin } from './skin.js';
-import { buildStage } from './stage.js';
+import { buildStage, toyEl as stageToy } from './stage.js';
 import { mountTouch } from './touch.js';
 import { mountNerves, restore as nervesRestore, serialize as nervesSerialize } from './nerves.js';
 import { mountPlay } from './play.js';
@@ -12,7 +12,8 @@ import { DEBUG } from './tunables.js';
 
 const persisted = loadPersist();
 
-const toyEl = buildStage(document.getElementById('page'));
+buildStage(document.getElementById('page'));
+const toyEl = stageToy;
 initSkin(document.getElementById('skin'), document.getElementById('aura'));
 mountTouch();
 mountNerves();

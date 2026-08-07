@@ -474,8 +474,10 @@ function drawAura(t, nowMs) {
 
 function drawPod(t) {
   const p = pod;
-  const px = lerp(p.x1, p.x2, p.progress);
-  const py = lerp(p.y1, p.y2, p.progress);
+  // reduced motion: full tendril revealed by opacity, no positional growth
+  const geo = reduced ? 1 : p.progress;
+  const px = lerp(p.x1, p.x2, geo);
+  const py = lerp(p.y1, p.y2, geo);
   const dx = px - p.x1, dy = py - p.y1;
   const len = Math.sqrt(dx * dx + dy * dy) || 1;
   const nx = -dy / len, ny = dx / len;
@@ -495,7 +497,7 @@ function drawPod(t) {
     const tx = 2 * iu * (cx - p.x1) + 2 * u * (px - cx);
     const ty = 2 * iu * (cy - p.y1) + 2 * u * (py - cy);
     const tl = Math.sqrt(tx * tx + ty * ty) || 1;
-    const w = lerp(9, 1.4, u) * (0.55 + 0.45 * p.progress);
+    const w = lerp(9, 1.4, u) * (0.55 + 0.45 * geo);
     left.push([bx + (-ty / tl) * w, by + (tx / tl) * w]);
     right.push([bx + (ty / tl) * w, by + (-tx / tl) * w]);
   }

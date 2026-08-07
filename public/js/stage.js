@@ -75,7 +75,7 @@ function bittenVisiting() {
   wordMap[wid] = s;
   s.appendChild(document.createTextNode('visi'));
   toothEl = el('span', 'gap letter-gap', s);
-  s.appendChild(document.createTextNode('ing'));
+  s.appendChild(document.createTextNode('ing.'));
   return s;
 }
 
