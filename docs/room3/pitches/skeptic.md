@@ -39,3 +39,18 @@ The whole arc is teaching each other a touch language — its taps and drifts, y
 ### Pitch B — Conversation at Thumb Height (the mechanic)
 
 The creature's entire sensorium is what a phone truly has: where the thumb rests, rhythm of taps, direction and speed of a drag. Its replies always land adjacent to contact — around the finger, never under it — and inside the thumb arc, so the exchange feels close, at whisper distance. It echoes your rhythm with slight variation; later it initiates a rhythm and leaves a beat of space (seconds, never longer) for you to echo back. Meaning accumulates by use, not announcement: a rhythm becomes yes; a slow drag becomes come here. Mid-arc it asks its first question in that language, answerable only in that language — no keyboard, no buttons, no narration anywhere. Blur and lock are absorbed silently; your first touch back is simply met a little quicker.
+
+---
+
+## **FINAL** — Revised kill-criteria (post-discussion)
+
+The room converged on MIMIC + Echo-Then-Ask + MAGPIE (page as camouflaged body; speech by prying words from its own disguise). The map, updated by what the discussion exposed:
+
+1. All 15 original traps stand. New, binding additions:
+2. **Unwitnessed damage is a bug.** Every word-spend happens on-screen, inside the region of recent contact, mid-viewport, with one authored gap-signature. Blur mid-spend rewinds or re-presents.
+3. **Eviction is the real reload.** iOS kills backgrounded tabs. State persists on every ratified event (never on unload); restore opens animate, never as a cold gapped page.
+4. **Hiding must stay animate.** Withdrawal/re-camouflage keeps a responsiveness floor — flinch within one touch, repair legible within two, regression bounded by action, not time.
+5. **Use, not recap.** Learned words are deployed at the visitor in present tense; no portrait, no rendered vocabulary, no meters.
+6. **Long-press is enemy territory.** Held-finger intimacy suppresses callout/selection/magnifier; signals bloom around contact, meaning in the wavefront.
+7. **Noise floor.** Grazes below a travel/duration threshold are not perceived.
+8. **Ending acceptance test:** a screenshot of the goodbye must mean nothing to anyone whose thumb didn't build it.
