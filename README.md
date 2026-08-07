@@ -9,17 +9,23 @@ for an audience of one.
 Everything is client-side. All tracking stays on-device — localStorage,
 sessionStorage, cookies, and IndexedDB are the model's memory, not telemetry.
 
+v2 is an *editing* site, not a talking one: the sensing layer surfaces
+almost nothing; the site proves it noticed by changing itself between
+visits. The design was produced by a structured writers' room — research,
+six isolated pitch personas, cross-pollination builds, synthesis with rival
+assemblies, and a cold adversarial punch-up — documented in `docs/room/`.
+
 ## Structure
 
-- `public/js/engine/` — reactive state engine: typed event bus, rules
-  resolver (priority / once / cooldown / phase gating), memory channels,
-  dialogue rationing, phase machine, narrative spaces, debug overlay.
-- `public/js/engine/sensors/` — instrumentation: pointer, scroll, input,
-  presence, environment, meta (back button, devtools, reloads).
-- `public/js/content/` — all reaction content as data. One module per
-  trigger family plus generic fallbacks and the narrative spine (phases,
-  lore artifacts, endings, post-game).
-- `docs/VOICE.md` — the character. `docs/RULES.md` — the authoring format.
+- `public/js/v2/` — the v2 engine: resume-visit clock (L2), two-clock arc
+  gates (L4), settlement scheduler (L1: nothing surfaces in the session
+  that caused it), composition renderer (L3: the page never changes while
+  watched), inheritance importer (v1's surviving memory shapes v2's opening
+  state), /status ledger, /app dashboard, live systems.
+- `public/js/engine/` + `public/js/content/` — v1 relics: unloaded, left in
+  place on purpose (a lazy migration wouldn't clean them up).
+- `docs/room/` — the writers' room: brief, research, board, pitches,
+  builds, synthesis (the v2 bible), punch-up rulings.
 
 ## Develop
 
@@ -29,10 +35,9 @@ Any static server over `public/` works:
 
 ## Debug overlay
 
-Tap the footer copyright five times quickly, or append `?debug=1`. Shows
-phase, action score, dispositions, recent events, last rule fired, and which
-ending the current behavior would earn. `RESET ALL` wipes every memory
-channel.
+Append `?debug=1`: shows gates, settlements, convergence, investigation
+scoring, every inference the scheduler makes, plus clock-forward controls
+(`+visit`, `+day`) and `RESET ALL`. Production console ships empty.
 
 ## Deploy
 

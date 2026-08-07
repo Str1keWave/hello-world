@@ -3,6 +3,8 @@
 import { s, save, gateLevel, localDayString } from './state.js';
 
 export function mountDebug() {
+  // QA hook: exists ONLY under ?debug — the production console stays empty
+  window.__loam2 = { s, save, gateLevel };
   const el = document.createElement('div');
   el.id = 'debug-overlay';
   el.innerHTML = `<div class="dbg-head">loam2://debug <button data-a="x">×</button></div>
