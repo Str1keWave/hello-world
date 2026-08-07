@@ -8,20 +8,18 @@ starve. Two of them break the room's own paper; they are marked.
 
 ## 1. The Overnight Rule (ECONOMY MECHANIC)
 
-- **Name:** The Overnight Rule
 - **Mechanism:** No sensed event may surface in the session that caused it.
   Events only ARM rules; armed rules settle into visible edits at the next
   visit's start, at most one per return. Arms that wait too long expire
   silently — missed is gone. The live event loop loses its say path entirely.
-- **Trigger:** Every trigger. Cause and effect are never in the same room.
+- **Trigger:** Every trigger. Cause and effect never share a room.
 - **Feels like:** Nothing happens while you act. Something has happened when
   you come back. The site stops being a mirror and becomes a night shift.
-- **Answers:** Q3 — the settlement gap is the clock; a binge is one visit and
-  earns one settlement, so bingeing structurally cannot rush the arc.
+- **Answers:** Q3 — the settlement gap is the clock; a binge is one visit,
+  one settlement, so bingeing cannot rush the arc.
 
 ## 2. Cut the touch family to one bruise (CUT)
 
-- **Name:** Cut the touch family to one bruise
 - **Mechanism:** Every spoken touch rule — rage ladders, logo arc, pinch,
   long-press, dead-tap commentary — demoted to memory-only counters. The
   family's lifetime visible output is one trace: the most rage-tapped
@@ -36,7 +34,6 @@ starve. Two of them break the room's own paper; they are marked.
 
 ## 3. Presence becomes the stagehand (CUT)
 
-- **Name:** Presence becomes the stagehand
 - **Mechanism:** Delete the whole presence-spoken tier: idle ladders, tab-hide
   title stunts, offline monologues, welcome-backs. The sensors survive but
   invert purpose: visibility and idle become the SCHEDULER. The site performs
@@ -54,13 +51,13 @@ starve. Two of them break the room's own paper; they are marked.
 - **Mechanism:** Remove devtools detection entirely — the sensor, not just
   the dialogue. No console plant, no source comments, no tripwire property.
   Ship a clean, boring, professionally minified build. The research says
-  devtools deserves one perfect prepared response; the board inherits that.
-  I say the perfect response is a vacuum, and deleting the sensor is what
-  makes it honest — nothing to find because nothing is looking.
+  devtools deserves one perfect prepared response. I say the perfect response
+  is a vacuum, and deleting the sensor makes it honest — nothing to find
+  because nothing is looking.
 - **Trigger:** The visitor opens devtools. Nothing applies. Forever.
 - **Feels like:** The author of v1 goes backstage expecting the second text
-  layer they themselves once wrote — and finds a normal website. The refusal
-  is legible only to them.
+  layer they once wrote — and finds a normal website. The refusal is legible
+  only to them.
 - **Answers:** Q5. The dramatic irony is used by declining it.
 
 ## 5. The first crack is a subtraction (SILENCE) — BREAKS the board

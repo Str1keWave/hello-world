@@ -99,33 +99,31 @@ still warm.
 **Assumption broken:** The board treats the audience-of-one as one role.
 The site casts them as two — analyst and subject, simultaneously.
 
-**Mechanism:** With the dashboard (pitch 4) open in tab A and the landing
-page in tab B, BroadcastChannel streams tab B's live session into tab A's
+**Mechanism:** With the dashboard (pitch 4) in tab A and the landing page
+in tab B, BroadcastChannel streams tab B's live session into tab A's
 subject view — scrolling the landing page moves the attention map in real
 time. The product demonstrably works; its only user is its only subject.
-The frame under "fake startup" is "functioning instrument."
+Under "fake startup" is "functioning instrument."
 
 **Trigger:** Two same-origin tabs, dashboard unlocked; behaves exactly as
 the product copy describes, no commentary.
 
 **Feels like:** Operating the surveillance tool on yourself, live.
 
-**Why rare:** Requires deliberate two-tab investigation; no text budget
-spent.
+**Why rare:** Requires deliberate two-tab investigation; no text budget.
 
-**Answers:** Q2 (uses Q5 mechanically: they built the watcher's watcher).
+**Answers:** Q2 (and Q5 mechanically: they built the watcher's watcher).
 
 ---
 
 ## 6. The Company Dies on Your Clock
 
 **Mechanism:** The subpages (about, blog, careers, status) form a decaying
-layer. Careers postings close one by one; the blog's cadence stops; uptime
-figures slip; a team page loses a member. Every date is computed from
-first-visit timestamp, so binger and drifter each see a coherent wind-down
-synchronized to their own arc. Under "startup landing page" is "company
-that ended"; under that: the pages are still being edited *after* the
-ending — by what remains.
+layer. Careers postings close; the blog's cadence stops; uptime figures
+slip; the team page loses a member. Every date is computed from first-visit
+timestamp, so binger and drifter each see a coherent wind-down synchronized
+to their own arc. Under "startup landing page" is "company that ended";
+under that: the pages are still being edited *after* the ending.
 
 **Trigger:** Content states keyed to days-since-first-visit; final state
 locks with a once-flag.
@@ -146,9 +144,8 @@ the lights are on.
 literally true of the site's own memory behavior toward the visitor. The
 final beat re-renders the existing pricing table as a genuine choice: the
 visitor selects which retention tier the site applies to THEM — once-
-flagged, irreversible, with short memory meaning real deletion across all
-channels. No new page; the ordinary table becomes the ending's control
-panel.
+flagged, irreversible; short memory means real deletion across all
+channels. The ordinary table becomes the ending's control panel.
 
 **Trigger:** Final phase repurposes existing tier CTAs; choice writes
 permanent state; endings diverge by tier.
@@ -165,12 +162,12 @@ and clicking costs something.
 ## 8. The Fourth Testimonial Slot
 
 **Mechanism:** Seed now: each testimonial carries small structured
-metadata — a duration, a visit count, a time-of-day habit — formatted
-consistently and reading as ordinary copy. At the ending, a fourth figure
-appears in the same format, its metadata drawn from the visitor's actual
-recorded trajectory (name only if they typed one into the form; otherwise
-the attribution stays structurally incomplete). The first three re-read
-instantly as prior subjects; the section was a roster all along.
+metadata — a duration, a visit count, a time-of-day habit — reading as
+ordinary copy. At the ending, a fourth figure appears in the same format,
+its metadata drawn from the visitor's actual recorded trajectory (name
+only if they typed one into the form; otherwise the attribution stays
+incomplete). The first three re-read instantly as prior subjects; the
+section was a roster all along.
 
 **Trigger:** Ending phase inserts the slot once; afterward the section
 reverts to three, permanently.
@@ -178,7 +175,7 @@ reverts to three, permanently.
 **Feels like:** Recognizing your own file in a cabinet you walked past
 daily.
 
-**Why rare:** This IS the one direct-address expenditure, spent as an edit
-rather than speech.
+**Why rare:** This IS the direct-address budget, spent as an edit, not
+speech.
 
 **Answers:** Q4 (also Q1: the site collects completed subjects).
