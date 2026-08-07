@@ -34,16 +34,14 @@ format, identical seeded metadata style (structure#8's durations, visit
 counts, time-of-day habits — the visitor's real trajectory). The quote is one
 sentence from their own brief (section 5). Attribution: the E4 name if one
 was ever typed-and-deleted (or inherited via F1 from v1's form), title
-"Founder." If no name exists on any channel: the quote, then "— Founder."
-alone, attribution incomplete, per structure#8.
+"Founder." No name on any channel: the quote, then "— Founder." alone,
+attribution incomplete, per structure#8.
 
-What the visitor does: inspects it. Reloads. Leaves. Returns.
-
-What changes: nothing. It is still there. Every prior investigation destroyed
-its own evidence; this one doesn't. For the investigator, this is the site
-failing inspection on purpose — the standoff S1 promised. For a passive
-visitor, it is simply the ending arriving. Same mechanism, two readings, no
-narration either way.
+What the visitor does: inspects it. Reloads. Leaves. Returns. What changes:
+nothing. It is still there. Every prior investigation destroyed its own
+evidence; this one doesn't. For the investigator, this is the site failing
+inspection on purpose — the standoff S1 promised. For a passive visitor, it
+is simply the ending arriving. Same mechanism, two readings, no narration.
 
 **Beat B — The pricing turn (E3).**
 Next visit-start after Beat A's testimonial has been dwelt on (dwell sensor),
@@ -169,11 +167,11 @@ nothing looking).
 **Ruling: killjoy#4. The backstage is empty.** Devtools sensor deleted, no
 plant, clean build, forever. The Spec Suite's load-bearing content survives
 without it: the failure beat's legibility now comes from Beat A's fused
-confession (the anomaly contains its own reason), and the brief-inside-the-
-fiction proof is E1's job. On S1's terms the empty console is itself content
-— the site passes its deepest inspection — and F3's Reader document remains
-the phone-native backstage either way, which is where this visitor actually
-is at 11pm. A freed dialogue slot stays unspent; under-spend is doctrine.
+confession, and the brief-inside-the-fiction proof is E1's job. On S1's
+terms the empty console is itself content — the site passes its deepest
+inspection — and F3's Reader document remains the phone-native backstage,
+which is where this visitor actually is at 11pm. The freed dialogue slot
+stays unspent; under-spend is doctrine.
 
 ---
 
