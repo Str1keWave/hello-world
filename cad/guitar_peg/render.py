@@ -139,13 +139,13 @@ def main() -> None:
     views = {
         # name: (direction camera looks along, up vector, zoom, caption)
         "01_iso_front":   ((-0.55, -0.45, -0.70), (0, 1, 0), 1.0,
-                           "Front iso: wall plate, rod, top rib, lip ramp"),
+                           "Front iso: wall plate, tilted rod, lip ramp"),
         "02_iso_front_low": ((0.60, 0.30, -0.74), (0, 1, 0), 1.0,
                            "Front iso from below: rod sits low on the plate"),
         "03_side":        ((-1.0, 0.0, 0.0), (0, 1, 0), 1.0,
-                           "Side profile: 5 deg tilt, 45 deg lip ramp, rib"),
+                           "Side profile: 5 deg tilt, 45 deg lip ramp"),
         "04_top":         ((0.0, -1.0, 0.0), (0, 0, -1), 1.0,
-                           "Top: rib on the rod centreline, D-lip at the tip"),
+                           "Top: rod on the plate centreline, D-lip at the tip"),
         "05_back_wall_face": ((0.0, 0.0, 1.0), (0, 1, 0), 1.0,
                            "Wall face: one flat featureless plane"),
         "06_print_orientation": ((-0.55, -0.70, -0.45), (0, 0, 1), 1.0,
@@ -167,7 +167,7 @@ def main() -> None:
     # root / rib close-up
     c = np.array([0.0, -1.6, 0.9])
     img = render(m, (0.7, -0.35, -0.62), (0, 1, 0), zoom=2.6, center=c)
-    img = label(img, "Root detail: 0.375 fillet, rib gusset, rounded plate edge")
+    img = label(img, "Root detail: 0.375 fillet, rounded plate edge")
     img.save(OUT / "08_root_detail.png"); imgs.append(img); print("rendered 08_root_detail")
     # contact sheet
     cols = 4

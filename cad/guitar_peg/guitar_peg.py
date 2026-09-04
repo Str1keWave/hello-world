@@ -31,7 +31,7 @@ ROD_DIA         = 1.00
 BODY_DEPTH      = 4.25    # guitar body depth at lower bout -- set after measuring
 LIP_CLEARANCE   = 0.75    # free rod between the guitar's front edge and the lip ramp
 
-RIB_ENABLED     = True
+RIB_ENABLED     = False
 RIB_THICK       = 0.25
 RIB_LEN         = 1.50    # along the rod, from the plate face
 RIB_HEIGHT      = 1.50    # up the plate face, measured from the rod's top surface
