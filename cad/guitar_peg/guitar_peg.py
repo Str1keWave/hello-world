@@ -29,25 +29,34 @@ FRONT_EDGE_R    = 0.03    # small round on the front-face perimeter (wall face s
 
 ROD_DIA         = 1.00
 BODY_DEPTH      = 4.25    # guitar body depth at lower bout -- set after measuring
+BODY_HEIGHT     = 16.0    # tallest point of the body above the rod (lower-bout width)
+BACK_ARCH       = 0.25    # how far the arched back bulges toward the wall past the rim
 LIP_CLEARANCE   = 0.75    # free rod between the guitar's front edge and the lip ramp
 
-RIB_ENABLED     = False
-RIB_THICK       = 0.25
+RIB_ENABLED     = False   # gusset on top of the rod; not needed at 2 lb, and it would
+RIB_THICK       = 0.25    # sit exactly where the rim rests (see README)
 RIB_LEN         = 1.50    # along the rod, from the plate face
 RIB_HEIGHT      = 1.50    # up the plate face, measured from the rod's top surface
 RIB_EDGE_R      = 0.06
-
-# The rib sits ON TOP of the rod for the first RIB_LEN inches, so the guitar's rim
-# can only rest on the rod beyond it (the rib doubles as the back-stop).  The rod
-# length therefore has to include RIB_LEN or the guitar hangs past the lip.
-ROD_LEN         = (RIB_LEN if RIB_ENABLED else 0.0) + BODY_DEPTH + LIP_CLEARANCE
-#                 measured from the plate's front face to where the lip ramp leaves
-#                 the rod surface (the last point the guitar can rest on).
 
 ROD_TILT_DEG    = 5.0     # rod tip raised above root (tilts up, toward +Y)
 ROD_BOTTOM_GAP  = 0.45    # gap between rod's lowest point (at root) and plate's bottom
 #                           edge.  Spec said 0.25, but a 0.375 root fillet plus the
 #                           front-edge round needs >= ~0.42; see check below.
+
+# Where the guitar actually sits.  With the rim flat on a rod tilted ROD_TILT_DEG the
+# back leans toward the wall by the same angle.  Pushed all the way back, the top edge
+# of the body (plus the arch of the back) touches the wall, which puts the rim's back
+# edge LEAN_OFFSET in front of the plate face.  tan(5 deg) = 0.09 is far below the
+# friction coefficient of ABS on lacquer, so the guitar stays wherever it is placed
+# between that position and the lip; the tilt only biases it toward the wall.
+LEAN_OFFSET     = max(0.0, BODY_HEIGHT * math.tan(math.radians(ROD_TILT_DEG))
+                      + BACK_ARCH - PLATE_THICK)
+REST_START      = max(LEAN_OFFSET, RIB_LEN if RIB_ENABLED else 0.0)
+ROD_LEN         = REST_START + BODY_DEPTH + LIP_CLEARANCE
+#                 from the plate's front face to where the lip ramp leaves the rod
+#                 surface (the last point the guitar can rest on).
+
 ROD_END_R       = 0.06    # round on the rod-end / lip-outer-face perimeter
 
 LIP_HEIGHT      = 0.50    # how far the lip rises above the rod's top surface
@@ -298,8 +307,10 @@ def sanity(peg: Part) -> None:
     nothing_behind = bb.min.Z > -1e-6
     print(f"  nothing behind the wall plane: {nothing_behind}")
     print(f"  rod centreline at root: Y={Y0:+.3f} (plate bottom edge at {-PLATE_SIZE/2:+.2f})")
-    print(f"  guitar rests on rod from axial {RIB_LEN if RIB_ENABLED else 0:.2f} to {ROD_LEN:.2f}"
-          f" (body depth {BODY_DEPTH} + clearance {LIP_CLEARANCE})")
+    print(f"  guitar pushed back to the wall: rim spans {REST_START:.2f} .. "
+          f"{REST_START + BODY_DEPTH:.2f} off the plate face; lip ramp starts at {ROD_LEN:.2f}"
+          f" (clearance {LIP_CLEARANCE})")
+    print(f"  print height in the rod-up orientation: {bb.size.Z * 25.4:.0f} mm")
     assert len(peg.solids()) == 1 and peg.is_valid and len(wall) == 1 and nothing_behind
     assert abs(wall[0].area - outline_area) < 1e-3
 
