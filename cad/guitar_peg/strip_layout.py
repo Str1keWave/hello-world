@@ -54,9 +54,10 @@ def draw(ax, title, wb, wt, H, r_top, r_bot, n_top, n_bot, rod_y, note):
     yb = EDGE + n_bot * (STRIP_W + 0.12) + 0.1
     if y0 - yb > 1.5:
         ax.add_patch(Rectangle((-hw(yb) + 0.2, yb), 2*hw(yb) - 0.4, y0 - yb - 0.1, facecolor="none",
-                               edgecolor="#c0392b", ls=":", lw=1.2, zorder=2))
-        ax.text(0, (yb + y0) / 2, "NO STRIPS HERE\n(tension side, short lever arm:\nthey would peel first)",
-                ha="center", va="center", fontsize=9, color="#c0392b")
+                               edgecolor="#7f8c8d", ls=":", lw=1.2, zorder=2))
+        ax.text(0, (yb + y0) / 2, "OPTIONAL\nstrips here take ~15% off the\ntop row and cannot hurt;\n"
+                "skip them to save strips",
+                ha="center", va="center", fontsize=9, color="#555")
     ax.text(0, y0 + STRIP_L / 2, f"{n_top} x Large\ntension row", ha="center", va="center", fontsize=9,
             color="white", weight="bold", zorder=5,
             bbox=dict(boxstyle="round,pad=0.3", fc="#2c6fb0", ec="none", alpha=0.9))

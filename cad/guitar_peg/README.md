@@ -68,8 +68,10 @@ strength members; 3 to 4 walls with sparse infill is fine.
 
 ## Strip layout (Large picture-hanging strips, ~3/4 x 3-1/2 in)
 
-Same rule for both pegs: **strips at the top edge and the bottom edge, none in between.**
-Strips near the rod on the tension side would peel first with a short lever arm.
+Same rule for both pegs: **a full row flush to the top edge, and bearing strips at the
+bottom edge.** The top row carries the moment; the bottom ones are the compression
+bearing. Strips in between are optional: on the ribbed body plate they take about 15%
+off the top row and cannot hurt, they just cost strips and take-down time.
 
 - Body peg: 7 strips vertical across the top row, tops flush to the top edge. One or
   two horizontal strips across the bottom 1.5 in as the compression bearing.
