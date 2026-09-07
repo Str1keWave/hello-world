@@ -28,11 +28,10 @@ def edge(x):
     return -float(np.interp(x, head_x, head_w))
 
 ROD_R = 0.5
-PEGS = {  # name: (x from tail, plate height, role, colour)
-    "1  waist (carries ~3.6-4 lb)":          (12.0, 9.5, "carries", "#1f77b4"),
-    "2  headstock-end neck (carries ~1.5 lb)": (32.5, 5.0, "carries", "#1f77b4"),
-    "3  heel neck (guard, card gap)":        (22.0, 5.0, "guard",   "#7f7f7f"),
-    "4  lower bout (guard, card gap)":       (5.5,  5.0, "guard",   "#d62728"),
+PEGS = {  # name: (x from tail, plate height, role, colour, (bottom width, top width))
+    "1  waist / body peg (carries ~3.6-4 lb)":   (12.0, 9.5, "carries", "#1f77b4", (4.0, 8.5)),
+    "2  headstock-end neck (carries ~1.5 lb)":   (32.5, 5.0, "carries", "#1f77b4", (6.0, 6.0)),
+    "3  heel neck (guard, card gap)":            (22.0, 5.0, "guard",   "#7f7f7f", (6.0, 6.0)),
 }
 COG = (16.0, 19.0)
 
@@ -41,11 +40,12 @@ def draw(ax, failed=None, title=""):
     # wall
     ax.add_patch(Rectangle((-4, -14), 50, 24, color="#f3efe6", zorder=0))
     # plates first (they sit behind the guitar)
-    for name, (x, H, role, col) in PEGS.items():
+    for name, (x, H, role, col, (wb, wt)) in PEGS.items():
         if failed == name: continue
         y_rod = edge(x) - ROD_R - (0.03 if role == "guard" else 0)
         y0 = y_rod - 0.95                     # rod centreline is 0.95 above the plate's bottom edge
-        ax.add_patch(Rectangle((x - 3, y0), 6, H, facecolor=col, alpha=0.18, edgecolor=col, lw=1.2, zorder=1))
+        trap = [(x - wb/2, y0), (x + wb/2, y0), (x + wt/2, y0 + H), (x - wt/2, y0 + H)]
+        ax.add_patch(Polygon(trap, closed=True, facecolor=col, alpha=0.18, edgecolor=col, lw=1.2, zorder=1))
     # guitar
     poly = outline()
     dy = 0.0
@@ -58,7 +58,7 @@ def draw(ax, failed=None, title=""):
     for fx in np.linspace(20.7, 33.6, 14):
         ax.plot([fx, fx], [edge(fx) + dy, -edge(fx) + dy], color="#7a5a3a", lw=0.8, zorder=4)
     # rods (end view) on top
-    for name, (x, H, role, col) in PEGS.items():
+    for name, (x, H, role, col, _) in PEGS.items():
         if failed == name:
             ax.text(x, edge(x) - 2.6, "FAILED", ha="center", color="#d62728", fontsize=11, weight="bold", zorder=6)
             continue
@@ -76,13 +76,11 @@ def draw(ax, failed=None, title=""):
     ax.set_xlim(-3, 44); ax.set_ylim(-14.5, 9.5); ax.axis("off")
     ax.set_title(title, fontsize=13, loc="left")
 
-fig, axes = plt.subplots(2, 1, figsize=(15, 13))
-draw(axes[0], title="Normal: guitar rests on pegs 1 and 2; pegs 3 and 4 sit a card-thickness below and carry nothing")
-draw(axes[1], failed="1  waist (carries ~3.6-4 lb)",
-     title="If the waist peg lets go: guitar drops onto 4 + 2 (balance point is between them, so it stays put)")
-handles = [plt.Line2D([], [], marker="o", ls="", mfc="#dddddd", mec=c, mew=2.2, ms=12, label=n) for n, (_, _, _, c) in PEGS.items()]
-handles.append(Rectangle((0, 0), 1, 1, facecolor="#1f77b4", alpha=0.18, edgecolor="#1f77b4", label="Command-strip plate (behind guitar); 9.5 in tall at the waist, 5 in elsewhere"))
+fig, ax = plt.subplots(1, 1, figsize=(15, 7))
+draw(ax, title="Guitar rests on pegs 1 and 2; peg 3 sits a card-thickness below the neck and carries nothing")
+handles = [plt.Line2D([], [], marker="o", ls="", mfc="#dddddd", mec=c, mew=2.2, ms=12, label=n) for n, (_, _, _, c, _) in PEGS.items()]
+handles.append(Rectangle((0, 0), 1, 1, facecolor="#1f77b4", alpha=0.18, edgecolor="#1f77b4", label="Command-strip plate, behind the guitar (body: 9.5 in trapezoid; neck: 6 x 5)"))
 fig.legend(handles=handles, loc="lower center", ncol=2, fontsize=10, frameon=False)
-plt.tight_layout(rect=(0, 0.07, 1, 1))
+plt.tight_layout(rect=(0, 0.12, 1, 1))
 plt.savefig("renders/09_peg_layout.png", dpi=110)
 print("ok")

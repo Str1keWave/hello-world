@@ -130,22 +130,26 @@ def label(img: Image.Image, text: str) -> Image.Image:
 
 
 def main() -> None:
+    import sys
+    variant = sys.argv[1] if len(sys.argv) > 1 else "body"
     OUT.mkdir(exist_ok=True)
-    m = trimesh.load(HERE / "guitar_peg_in.stl")
+    m = trimesh.load(HERE / f"guitar_peg_{variant}.stl")
     m.merge_vertices()
+    if m.bounds[1][2] - m.bounds[0][2] > 50:      # mm file -> inches for the labels/zooms
+        m.apply_scale(1 / 25.4)
     # smooth normals only across edges flatter than 25 deg; sharp creases stay sharp
     m = trimesh.graph.smooth_shade(m, angle=math.radians(25))
     bb = m.bounds
     views = {
         # name: (direction camera looks along, up vector, zoom, caption)
         "01_iso_front":   ((-0.55, -0.45, -0.70), (0, 1, 0), 1.0,
-                           "Front iso: wall plate, tilted rod, lip ramp"),
+                           "Front iso: plate, tilted rod, lip ramp"),
         "02_iso_front_low": ((0.60, 0.30, -0.74), (0, 1, 0), 1.0,
                            "Front iso from below: rod sits low on the plate"),
         "03_side":        ((-1.0, 0.0, 0.0), (0, 1, 0), 1.0,
                            "Side profile: 5 deg tilt, 45 deg lip ramp"),
         "04_top":         ((0.0, -1.0, 0.0), (0, 0, -1), 1.0,
-                           "Top: rod on the plate centreline, D-lip at the tip"),
+                           "Top: rod on the plate centreline, ribs, D-lip at the tip"),
         "05_back_wall_face": ((0.0, 0.0, 1.0), (0, 1, 0), 1.0,
                            "Wall face: one flat featureless plane"),
         "06_print_orientation": ((-0.55, -0.70, -0.45), (0, 0, 1), 1.0,
@@ -155,7 +159,7 @@ def main() -> None:
     for name, (d, up, zoom, cap) in views.items():
         img = render(m, d, up, zoom)
         img = label(img, cap)
-        img.save(OUT / f"{name}.png")
+        img.save(OUT / f"{variant}_{name}.png")
         imgs.append(img)
         print("rendered", name)
     # lip close-up
@@ -163,12 +167,12 @@ def main() -> None:
     c = (tip.min(0) + tip.max(0)) / 2
     img = render(m, (-0.6, -0.5, -0.62), (0, 1, 0), zoom=4.2, center=c)
     img = label(img, "Lip detail: D-shaped stop, 45 deg underside, rounded crest")
-    img.save(OUT / "07_lip_detail.png"); imgs.append(img); print("rendered 07_lip_detail")
+    img.save(OUT / f"{variant}_07_lip_detail.png"); imgs.append(img); print("rendered 07_lip_detail")
     # root / rib close-up
-    c = np.array([0.0, -1.6, 0.9])
-    img = render(m, (0.7, -0.35, -0.62), (0, 1, 0), zoom=2.6, center=c)
-    img = label(img, "Root detail: 0.375 fillet, rounded plate edge")
-    img.save(OUT / "08_root_detail.png"); imgs.append(img); print("rendered 08_root_detail")
+    c = np.array([0.0, bb[0][1] + 1.6, 0.9])
+    img = render(m, (0.7, -0.35, -0.62), (0, 1, 0), zoom=2.2, center=c)
+    img = label(img, "Root detail: 0.375 fillet, rod rib" if variant == "body" else "Root detail: 0.375 fillet, rounded plate edge")
+    img.save(OUT / f"{variant}_08_root_detail.png"); imgs.append(img); print("rendered 08_root_detail")
     # contact sheet
     cols = 4
     rows = math.ceil(len(imgs) / cols)
@@ -176,7 +180,7 @@ def main() -> None:
     sheet = Image.new("RGB", (cols * th, rows * th), (255, 255, 255))
     for i, im in enumerate(imgs):
         sheet.paste(im.resize((th, th), Image.LANCZOS), ((i % cols) * th, (i // cols) * th))
-    sheet.save(OUT / "00_contact_sheet.png")
+    sheet.save(OUT / f"{variant}_00_contact_sheet.png")
     print("wrote contact sheet")
 
 
