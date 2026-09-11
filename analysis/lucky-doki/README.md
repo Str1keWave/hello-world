@@ -1,28 +1,62 @@
 # "Lucky Doki" — DORIDORI (TAK × xei) — musical analysis
 
-Written 2026-09-10. Two parts: a signal-analysis pipeline (`analyze_track.py`) and the
-analysis below.
-
-## Status of the audio analysis
-
-The session's egress policy denied every audio host that was tried (YouTube, SoundCloud,
-Spotify preview CDN, Apple/iTunes preview, Deezer, Bandcamp, archive.org), and also every
-lyrics/wiki/press page. Only web-search snippets came through. So the numbers below that
-come from the recording itself are **not** measured here. They come from published sources
-(Chordify's automated transcription of the teaser, streaming-service metadata, Korean press
-copy for the debut). Run the pipeline locally on the file to replace them with measurements:
+Written 2026-09-10, measured 2026-09-11 on the official MV audio (mp3, 192 kb/s, 44.1 kHz,
+stereo, 3:33 — the MV cut is 27 s longer than the 3:06 single: about 6 s of MV intro and
+about 20 s of outro). The audio itself is not committed. Pipeline: `analyze_track.py`
+(generic pass) plus the targeted passes described below; figures: `overview.png`,
+`timeline.png` (loudness, bass pitch, chroma with bar numbers), `zoom.png`
+(mel spectrograms of the drop, the hyperpop section and the solo). Raw numbers from the
+generic pass are in `report.json`.
 
 ```bash
 pip install -r analysis/lucky-doki/requirements.txt
 python3 analysis/lucky-doki/analyze_track.py "Lucky Doki.mp3" --out lucky_doki_analysis
 ```
 
-It writes `report.json`, `report.md`, and `overview.png` (waveform + RMS, spectrogram,
-chromagram, tempogram, beat-synchronous self-similarity). Smoke-tested on a synthetic
-158 BPM E♭m7 → Bmaj7 → D♭maj7 → Fm7 loop: key and all four chords were recovered exactly;
-the beat tracker reported the half-tempo (79), so the felt-tempo field normalises to 100–200.
+## Measured
 
-## Verified facts
+| quantity | value | method |
+|---|---|---|
+| tempo | 156.0 BPM (155.6–156.3 per section; grid-locked, no drift) | onset autocorrelation, 5.8 ms hop, parabolic peak |
+| tuning | A440 (+0.02 semitones) | librosa.estimate_tuning |
+| meter | 4/4, bar = 1.539 s, 8-bar phrase = 12.3 s | downbeat phase from low-band energy |
+| integrated loudness | −9.7 LUFS, peak −0.8 dBFS, crest 11.7 dB | pyloudnorm |
+| short-term loudness | verses −10.5, choruses −7.6 to −8.0, drop −8.3, solo −15, intro riff −19 LUFS | 3 s windows |
+| verse key | E♭ minor (Krumhansl 0.65–0.77); G/G♭ ratio 0.44, almost no E or G | harmonic-layer chroma from C3 up (kick-proof) |
+| chorus key | F minor (Krumhansl 0.78–0.81); G/G♭ 2.0, C/C♭ 2.3, E natural present | same |
+| solo key | F minor (0.84, strongest fit in the song) | same |
+| verse riff | E♭m – B♭m – C♭maj7 – D♭ (i, v, ♭VI, ♭VII), two chords per bar | bass root line + chroma quality |
+| chorus bass | G, C, F dominate (ii, V, i in F minor); C7 detected repeatedly | drum-excluded bass pyin |
+| drop (62–74 s) | F pedal, 81 % of bass frames on F, hard 8th/quarter gating | bass pyin + spectrogram |
+| solo bass | F–G–F–C, then G♭–A♭–D♭–F–C, register an octave up (median F3) | bass pyin per bar |
+| solo lead | E♭ F E♭ G G E♭ E♭ F **E** F F F C: chromatic E→F approach, straight 8ths, no triplets | pyin note events; onset grid |
+| swing | none anywhere (triplet-position onsets ≤ 4 %) except the 4-bar pre-chorus 2 (22 %) | onset phase vs 156 grid |
+| 16th-note density | hyperpop section 21 % of onsets on 16ths vs ≤ 2 % elsewhere; highest drum onset rate (4.9/s) | onset phase; percussive onsets |
+| stereo width | verses −15 to −21 dB side/mid (narrow); choruses −6 to −8 dB; drop −5.5 dB (widest) | mid/side RMS |
+| spectral tilt | verse sub-bass share 0.19–0.24; chorus 0.07; solo 0.013 (no low end at all) | STFT band energy |
+| sung range | ≈ C4–C5; chorus centres on A♭4–B♭4 | pyin on band-passed mid channel |
+| melody pitch sets | verse: E♭ G♭ A♭ B♭ D♭ (+F); chorus: F A♭ B♭ C (+E♭) — both pentatonic-based | pitch-class histograms of tracked voice |
+
+## Section map (MV timing; bar 1 = 0.2 s)
+
+| bars | time | section | key | notes |
+|---|---|---|---|---|
+| 1–6 | 0:00–0:09 | MV intro | – | SFX, no low end |
+| 7–10 | 0:09–0:15 | intro riff | E♭m | E♭ minor pentatonic riff, hits on beats 1 and 3, −19 LUFS, sub-heavy |
+| 11–30 | 0:15–0:46 | verse 1 + pre | E♭m | 20 bars; riff loop continues under rapid-fire vocal |
+| 31–32 | 0:46–0:48 | break | | 1-bar stop |
+| 33–40 | 0:48–1:00 | chorus 1 | Fm | 8 bars, −8 LUFS, wide |
+| 41–48 | 1:00–1:14 | drop / post-chorus | F pedal | gated pumping pedal, vocal chops, widest stereo |
+| 49–55 | 1:14–1:25 | riff 2 | E♭m | back down a whole step, −14 LUFS |
+| 56–65 | 1:25–1:40 | verse 2 | E♭m | shorter than verse 1 |
+| 66–69 | 1:40–1:46 | pre-chorus 2 | A♭ pedal | triplet fill feel, chromatic climb D♭–D–E♭ |
+| 70–77 | 1:46–1:58 | chorus 2 | Fm | 8 bars |
+| 78–90 | 1:58–2:19 | hyperpop section | Fm/Cm | 16th-note stutters, risers, densest drums, voice barely trackable (processed) |
+| 91–100 | 2:19–2:36 | bebop solo + build | Fm | −15 LUFS, band-passed, walking-register bass, chromatic lead |
+| 101–125 | 2:36–3:13 | final chorus ×3 | Fm | 24 bars, loudest (−7.2 to −8 LUFS) |
+| 126–138 | 3:13–3:33 | MV outro | – | fade |
+
+## Published facts (from search snippets)
 
 | item | value | source |
 |---|---|---|
@@ -49,75 +83,26 @@ Lucky Doki"; verse 2: "I can barely reach the person in the mirror, who are you?
 badump-badump, today's different from yesterday, Doki"; "forgot to charge my phone, battery
 icon is red"; "it's our very own Lucky Doki".
 
-## Derived numbers at 158 BPM, 4/4
 
-| unit | duration |
-|---|---|
-| beat | 380 ms |
-| 8th note | 190 ms |
-| 16th note | 95 ms |
-| bar | 1.52 s |
-| 8-bar phrase | 12.2 s |
-| whole track (186.25 s) | ≈ 122.5 bars ≈ 15 eight-bar phrases |
+## The analysis (measured version)
 
-## The analysis
-
-See the chat reply / the sections below.
-
-### 1. Harmony: jazz vocabulary under a rock and hyperpop skin
-Every detected chord is a seventh chord. In E♭ minor: E♭m7 is i7, C♭maj7 (spelled Bmaj7) is
-♭VImaj7, D♭maj7 is ♭VII, Fm7 is ii7, C7 is V7/ii. Two things stand out.
-
-- **Modal mixture between aeolian and dorian.** The ♭6 (C♭) lives in C♭maj7; the natural 6
-  (C) lives in Fm7 and C7. Diatonic E♭ minor would give Fm7♭5, not Fm7. The song moves
-  between the dark sixth and the bright sixth, which is the harmonic form of the title's
-  Lucky/Doki ambivalence.
-- **A built-in bebop cycle.** C7 → Fm7 is a secondary dominant resolving to ii, which sets up
-  ii → V → i (Fm7 → B♭7 → E♭m7). That is the standard cell for bebop improvisation, so the
-  "bebop solo" the press release names is not a genre stunt bolted on; the chord set of the
-  song already carries it.
-- **The Aeolian cadence for lift.** ♭VI → ♭VII → i (C♭ → D♭ → E♭m) is the anthem cadence of
-  anime openings and J-rock; with maj7 extensions on ♭VI and ♭VII it reads as city-pop /
-  fusion rather than power-chord rock. The rock lives in the drums and the guitar timbre,
-  not in the harmony.
-
-### 2. Tempo and rhythm: the tempo is the heartbeat
-158 BPM is an anxious pulse, not a resting one. "Doki doki" is the onomatopoeia for a
-pounding heart; "Lucky Doki" scans as two trochees (LUCK-y DO-ki), the "lub-dub lub-dub"
-pattern. The hook is a heartbeat spoken over a heartbeat tempo. At 158 an 8th note is 190 ms,
-about the fastest rate Korean syllables stay intelligible, which is why the verses are
-rapid-fire lists (bus, wallet, battery) and the chorus falls back on "la li la ta ta":
-semantically empty syllables let the melody run at 16th-note speed without losing the
-listener.
-
-### 3. Form: rhythm-game pacing
-Three genre states (rock, hyperpop, bebop) plus a riff intro inside 122 bars means no
-section outstays an 8-bar phrase. TAK writes for EZ2ON and DJMAX, where every 8 bars must
-present a new "pattern" to the player; the same design pressure produces constant novelty
-here, and the duo's name (도리도리, the side-to-side head shake) is the stated brief:
-swing between genres.
-
-### 4. Voice: a clear tone against a dense wall
-xei comes from hikigatari covers: one voice, one instrument, phrasing carried by the
-singer. Placing that limpid tone in front of a distorted, seventh-chord-heavy band, and
-then presumably processing it in the hyperpop section, dramatises verse 2's "who is the
-person in the mirror".
-
-### 5. Lyric mechanics: the chorus is a coping mantra
-The verses catalogue small failures; the pre-chorus ("but anyway, no need to worry, just
-remember one thing") is the release; the chorus is a spell whose power is rhythmic rather
-than semantic. The song is honest that the mantra doesn't fix anything ("today's different
-from yesterday, Doki"), it just gives the panic a beat to sit on.
-
-### 6. Cross-cultural engineering
-A Korean act, a Japanese onomatopoeia, an English adjective, Korean verses, an instrumental
-on the single for cover singers (which is how xei started), and a producer who works with
-hololive and STELLIVE: the track is built for the K/J/EN subculture corridor, and the
-Japanese-language and SE:A covers that followed are evidence it worked.
-
-### What running the pipeline would settle
-Whether the felt tempo is 158 or 79 (half-time verses?), the exact section map and bar
-counts, whether the solo is swung (swing index), whether the hyperpop section is the
-loudest or the sparsest (RMS and onset density per section), whether the key ever shifts
-(8-beat key scan), the real chord loop of the chorus (the Chordify set is from the teaser
-only), and xei's sung range (pyin on the harmonic layer).
+1. **Two keys, one singer register.** Verses are E♭ minor, aeolian, riff-driven: i, v, ♭VI,
+   ♭VII with no leading tone. Every chorus is F minor, a whole step up, with a functional
+   ii–V–i (Gø–C7–Fm) and the E-natural leading tone. The melody stays pentatonic in both
+   keys and the singer's tessitura stays around A♭4–B♭4, so the chorus feels lifted without
+   being sung higher. Modal rock verse, functional jazz-pop chorus: the harmonic language
+   changes with the genre.
+2. **The bebop solo is prepared, not pasted.** The chorus already carries ii–V–i in F minor.
+   The solo stays in F minor (the song's strongest key fit), the bass walks an octave up
+   (median F3), the low end is filtered out entirely (sub-bass share 0.013), and the lead
+   plays straight 8ths at 156 with chromatic approach tones (E→F). It is bebop vocabulary
+   at rock tempo, not swung jazz.
+3. **156 BPM = the heartbeat.** 8th note 192 ms, 16th 96 ms. "Lucky Doki" = two trochees,
+   lub-dub lub-dub, over a pulse in the anxious-heart range.
+4. **Dynamics are engineered, not flattened.** −9.7 LUFS integrated is a hot K-pop master,
+   but the arrangement still drops 7 dB into the solo and 11 dB into the intro riff.
+   Stereo width doubles from verse (centered riff) to chorus (hard-panned doubles), and the
+   spectral centre moves from sub-bass (verse 0.2 share) to mids/highs (chorus 0.07).
+5. **Form at rhythm-game pace.** Nothing lasts longer than 8 bars except the 24-bar final
+   chorus; each genre state gets its own signature: gated pedal (drop), 16th stutters
+   (hyperpop), band-pass and walking bass (bebop), wall of doubled guitars (chorus).
